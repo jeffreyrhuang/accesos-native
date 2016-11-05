@@ -1,36 +1,36 @@
 import React, { Component } from 'react';
-import { View, Dimensions } from 'react-native';
-import { Header, Prompt, Card, Diagram } from './components/common';
+import { Navigator } from 'react-native';
+import ChooseOrientation from './components/ChooseOrientation';
+import SelectTraits from './components/SelectTraits';
+
+const ROUTES = {
+  page1: ChooseOrientation,
+  page2: SelectTraits
+};
 
 class App extends Component {
 
+  renderScene(route, navigator) {
+    var Component = ROUTES[route.name];
+    return <Component />
+  }
+
   render() {
     return (
-      <View>
-        <Header headerText="Puerta" />
-        <Prompt promptText="Choose one:" />
-        <View style={styles.viewContainerStyle}>
-          <Diagram style={styles.diagramStyle} text="Izquierda" source={require('./img/izq.png')} />
-          <Diagram style={styles.diagramStyle} text="Derecha" source={require('./img/der.png')} />
-        </View>
-      </View>
+      <Navigator
+        style={styles.containerStyle}
+        initialRoute={{name: 'page1'}}
+        renderScene={this.renderScene}
+        configureScene={() => { return Navigator.SceneConfigs.FloatFromRight; }}
+      />
     );
   }
 }
 
-const width = Dimensions.get('window').width
-
 const styles = {
-  viewContainerStyle: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around'
-
+  containerStyle: {
+    flex: 1
   },
-  diagramStyle: {
-    width: (width / 2) - 20,
-    height: 200,
-  }
 }
 
 export default App;
