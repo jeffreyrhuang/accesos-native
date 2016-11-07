@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Navigator } from 'react-native';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducers from './reducers';
 import ChooseOrientation from './components/ChooseOrientation';
 import SelectTraits from './components/SelectTraits';
 
@@ -17,12 +20,14 @@ class App extends Component {
 
   render() {
     return (
-      <Navigator
-        style={styles.containerStyle}
-        initialRoute={{name: 'page1'}}
-        renderScene={this.renderScene}
-        configureScene={() => { return Navigator.SceneConfigs.FloatFromRight; }}
-      />
+      <Provider store={createStore(reducers)}>
+        <Navigator
+          style={styles.containerStyle}
+          initialRoute={{name: 'page1'}}
+          renderScene={this.renderScene}
+          configureScene={() => { return Navigator.SceneConfigs.FloatFromRight; }}
+        />
+      </Provider>
     );
   }
 }
