@@ -6,7 +6,6 @@ class ChooseOrientation extends Component {
   render () {
     return (
       <View>
-        <Header headerText="Puerta" />
         <Prompt promptText="Choose one:" />
         <View style={styles.viewContainerStyle}>
           <Diagram style={styles.diagramStyle} text="Izquierda" source={require('../img/izq.png')} />

@@ -8,7 +8,6 @@ class SelectTraits extends Component {
   render() {
     return(
       <View>
-        <Header headerText="Puerta" />
         <Picker>
           <Item label='hacia afuera' value='afuera' />
           <Item label='hacia adentro' value='adentro' />
