@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Dimensions } from 'react-native';
-import { Header, Prompt, Card, Diagram } from './common';
+import { Header, Prompt, Card } from './common';
+import Diagram from './Diagram';
 
 class ChooseOrientation extends Component {
   render () {
@@ -8,8 +9,16 @@ class ChooseOrientation extends Component {
       <View>
         <Prompt promptText="Choose one:" />
         <View style={styles.viewContainerStyle}>
-          <Diagram style={styles.diagramStyle} text="Izquierda" source={require('../img/izq.png')} />
-          <Diagram style={styles.diagramStyle} text="Derecha" source={require('../img/der.png')} />
+          <Diagram
+            style={styles.diagramStyle}
+            text="Izquierda"
+            source={require('../img/izq.png')}
+          />
+          <Diagram
+            style={styles.diagramStyle}
+            text="Derecha"
+            source={require('../img/der.png')}
+          />
         </View>
       </View>
     )

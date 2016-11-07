@@ -16,10 +16,10 @@ class App extends Component {
   }
 }
 
-const styles = {
-  containerStyle: {
-    flex: 1
-  },
-}
+// const styles = {
+//   containerStyle: {
+//     flex: 1
+//   },
+// }
 
 export default App;
