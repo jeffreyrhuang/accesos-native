@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Dimensions } from 'react-native';
-import { Header, Prompt, Card } from './common';
+import { Prompt, Card } from './common';
 import Diagram from './Diagram';
 
 class ChooseOrientation extends Component {

@@ -2,14 +2,20 @@ import React, { Component } from 'react';
 import { View, Image, Text, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import { Actions } from 'react-native-router-flux';
 
 class Diagram extends Component {
+  onClick() {
+    this.props.selectOrientation(this.props.text);
+    Actions.traits();
+  }
+
   render() {
     const { textContainerStyle, textStyle, imageStyle, containerStyle } = styles;
     const { text, source } = this.props
 
     return (
-      <TouchableOpacity onPress={() => this.props.selectOrientation(text)} style={containerStyle}>
+      <TouchableOpacity onPress={this.onClick.bind(this)} style={containerStyle}>
         <View style={textContainerStyle}>
           <Text style={textStyle}>{text}</Text>
         </View>
