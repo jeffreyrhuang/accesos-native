@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Picker, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { Prompt, Card, CardSection } from './common';
-import { puertaAbreSelected } from '../actions';
+import { puertaAbreSelected, cerraduraSelected } from '../actions';
 
 const Item = Picker.Item
 
@@ -22,7 +22,10 @@ class SelectTraits extends Component {
         </CardSection>
         <CardSection>
           <Text style={styles.pickerLabelStyle}>Cerradura</Text>
-          <Picker style={{ flex: 1 }}>
+          <Picker
+            style={{ flex: 1 }}
+            selectedValue={this.props.cerradura}
+            onValueChange={value => this.props.cerraduraSelected(value)}>
             <Item label='Corriente Yale' value='Corriente Yale' />
             <Item label='Eléctrico Yale' value='Eléctrico Yale' />
             <Item label='Ojos de candado' value='Ojos de candado' />
@@ -42,8 +45,9 @@ const styles = {
 
 const mapStateToProps = state => {
   return {
-    puerta_abre: state.traits.puerta_abre
+    puerta_abre: state.traits.puerta_abre,
+    cerradura: state.traits.cerradura
   };
 };
 
-export default connect(mapStateToProps, { puertaAbreSelected })(SelectTraits);
+export default connect(mapStateToProps, { puertaAbreSelected, cerraduraSelected })(SelectTraits);
