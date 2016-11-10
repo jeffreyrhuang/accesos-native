@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Picker, Text, Switch } from 'react-native';
+import { ScrollView, View, Picker, Text, Switch } from 'react-native';
 import { connect } from 'react-redux';
 import { Button, Prompt, CardSection } from './common';
 import { puertaAbreSelected, cerraduraSelected, switchChanged } from '../actions';
@@ -14,7 +14,7 @@ class SelectTraits extends Component {
 
   render() {
     return(
-      <View>
+      <ScrollView>
         <CardSection>
           <Text style={styles.labelStyle}>Puerta abre</Text>
           <Picker
@@ -50,7 +50,7 @@ class SelectTraits extends Component {
             Submit
           </Button>
         </CardSection>
-      </View>
+      </ScrollView>
     )
   }
 }

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { View, Dimensions } from 'react-native';
+import { ScrollView, View, Dimensions } from 'react-native';
 import { Prompt, Card } from './common';
 import Diagram from './Diagram';
 
 class ChooseOrientation extends Component {
   render () {
     return (
-      <View>
+      <ScrollView>
         <Prompt promptText="Choose one:" />
         <View style={styles.viewContainerStyle}>
           <Diagram
@@ -20,7 +20,7 @@ class ChooseOrientation extends Component {
             source={require('../img/der.png')}
           />
         </View>
-      </View>
+      </ScrollView>
     )
   }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TextInput, Image } from 'react-native';
+import { ScrollView, View, TextInput, Image } from 'react-native';
 import { connect } from 'react-redux';
 
 class FillDimensions extends Component {
@@ -26,9 +26,11 @@ class FillDimensions extends Component {
 
   render() {
     return(
-      <View style={styles.imageContainer}>
-        {this.renderImage()}
-      </View>
+      <ScrollView>
+        <View style={styles.imageContainer}>
+          {this.renderImage()}
+        </View>
+      </ScrollView>
     );
   }
 }
