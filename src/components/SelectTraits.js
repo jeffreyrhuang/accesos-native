@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import { View, Picker, Text } from 'react-native';
 import { connect } from 'react-redux';
-import { Prompt, Card, CardSection } from './common';
+import { Button, Prompt, Card, CardSection } from './common';
 import { puertaAbreSelected, cerraduraSelected } from '../actions';
+import { Actions } from 'react-native-router-flux';
 
 const Item = Picker.Item
 
 class SelectTraits extends Component {
+  onSubmit() {
+    Actions.dimensions();
+  }
+
   render() {
     return(
       <View>
@@ -31,6 +36,11 @@ class SelectTraits extends Component {
             <Item label='Ojos de candado' value='Ojos de candado' />
             <Item label='Pico de lora' value='Pico de lora' />
           </Picker>
+        </CardSection>
+        <CardSection>
+          <Button onPress={this.onSubmit.bind(this)}>
+            Submit
+          </Button>
         </CardSection>
       </View>
     )
