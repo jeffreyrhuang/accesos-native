@@ -6,7 +6,7 @@ import { Actions } from 'react-native-router-flux';
 
 class Diagram extends Component {
   onClick() {
-    this.props.selectOrientation(this.props.text);
+    this.props.orientationChosen(this.props.text);
     Actions.traits();
   }
 
