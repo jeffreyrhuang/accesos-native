@@ -7,7 +7,7 @@ export default (state = null, action) => {
 
   switch (action.type) {
     case ORIENTATION_CHOSEN:
-      return action.payload;
+      return { ...state, orientation: action.payload};
     default:
       return state;
   }

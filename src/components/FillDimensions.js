@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import { connect } from 'react-redux';
 
 class FillDimensions extends Component {
@@ -12,4 +12,11 @@ class FillDimensions extends Component {
   }
 }
 
-export default FillDimensions;
+const mapStateToProps = state => {
+  return {
+    orientation: state.orientation.orientation,
+    segmentar: state.traits.segmentar
+  }
+};
+
+export default connect(mapStateToProps)(FillDimensions);

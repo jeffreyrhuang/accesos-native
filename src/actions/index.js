@@ -1,7 +1,8 @@
 import {
   ORIENTATION_CHOSEN,
   PUERTA_ABRE_SELECTED,
-  CERRADURA_SELECTED
+  CERRADURA_SELECTED,
+  SEGMENTAR
 } from './types'
 
 export const orientationChosen = (side) => {
@@ -22,5 +23,12 @@ export const cerraduraSelected = (value) => {
   return {
     type: CERRADURA_SELECTED,
     payload: value
+  };
+};
+
+export const switchChanged = (boolean) => {
+  return {
+    type: SEGMENTAR,
+    payload: boolean
   };
 };
