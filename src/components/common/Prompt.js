@@ -15,10 +15,10 @@ const Prompt = (props) => {
 
 const styles = {
   textStyle: {
-    fontSize: 25
+    fontSize: 20
   },
   containerStyle: {
-    height: 200,
+    height: 100,
     alignItems: 'center',
     justifyContent: 'center'
   }

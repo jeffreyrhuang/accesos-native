@@ -57,10 +57,14 @@ class SelectTraits extends Component {
 
 const styles = {
   labelStyle: {
-    fontSize: 18
+    fontSize: 18,
+    paddingTop: 20,
+    paddingLeft: 20
   },
   switchStyle: {
-    marginLeft: 50
+    marginLeft: 50,
+    marginTop: 20,
+    marginBottom: 20
   }
 }
 
