@@ -1,6 +1,7 @@
 import {
   PUERTA_ABRE_SELECTED,
   CERRADURA_SELECTED,
+  CIERRAPUERTAS,
   SEGMENTAR
 } from '../actions/types';
 
@@ -16,6 +17,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, puerta_abre: action.payload };
     case CERRADURA_SELECTED:
       return { ...state, cerradura: action.payload };
+    case CIERRAPUERTAS:
+      return { ...state, cierra: action.payload};
     case SEGMENTAR:
       return { ...state, segmentar: action.payload };
     default:

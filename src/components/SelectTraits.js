@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ScrollView, View, Picker, Text, Switch } from 'react-native';
 import { connect } from 'react-redux';
 import { Button, Prompt, CardSection } from './common';
-import { puertaAbreSelected, cerraduraSelected, switchChanged } from '../actions';
+import { puertaAbreSelected, cerraduraSelected, cierraChanged, segmentarChanged } from '../actions';
 import { Actions } from 'react-native-router-flux';
 
 const Item = Picker.Item
@@ -38,11 +38,19 @@ class SelectTraits extends Component {
           </Picker>
         </CardSection>
         <CardSection>
+          <Text style={styles.labelStyle}>Cierrapuertas</Text>
+          <Switch
+            style={styles.switchStyle}
+            value={this.props.cierra}
+            onValueChange={(boolean) => this.props.cierraChanged(boolean)}
+          />
+        </CardSection>
+        <CardSection>
           <Text style={styles.labelStyle}>Segmentar?</Text>
           <Switch
             style={styles.switchStyle}
             value={this.props.segmentar}
-            onValueChange={(boolean) => this.props.switchChanged(boolean)}
+            onValueChange={(boolean) => this.props.segmentarChanged(boolean)}
           />
         </CardSection>
         <CardSection>
@@ -72,8 +80,9 @@ const mapStateToProps = state => {
   return {
     puerta_abre: state.traits.puerta_abre,
     cerradura: state.traits.cerradura,
+    cierra: state.traits.cierra,
     segmentar: state.traits.segmentar
   };
 };
 
-export default connect(mapStateToProps, { puertaAbreSelected, cerraduraSelected, switchChanged })(SelectTraits);
+export default connect(mapStateToProps, { puertaAbreSelected, cerraduraSelected, cierraChanged, segmentarChanged })(SelectTraits);
