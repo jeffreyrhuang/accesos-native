@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { ScrollView, View, TextInput, Image } from 'react-native';
 import { connect } from 'react-redux';
-import { Prompt } from './common';
+import { Prompt, Button } from './common';
 
 class FillDimensions extends Component {
+
+  onSave() {
+    this.props.createPuerta();
+  }
 
   renderImage() {
     const { orientation, segmentar } = this.props;
@@ -53,6 +57,9 @@ class FillDimensions extends Component {
         <View style={styles.imageContainer}>
           {this.renderImage()}
         </View>
+        <Button style={styles.button} onPress={this.onSave.bind(this)}>
+          Save
+        </Button>
       </ScrollView>
     );
   }
@@ -85,6 +92,9 @@ const styles = {
   input: {
     backgroundColor: '#eee',
     flex: 1
+  },
+  button: {
+    marginTop: 10
   }
 }
 
