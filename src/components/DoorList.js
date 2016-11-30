@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { View, Text, ListView } from 'react-native';
+import { doorsFetch } from '../actions';
 
 class DoorList extends Component {
+
+  componentWillMount() {
+    this.props.doorsFetch();
+  }
 
   // createDataSource({ door }) {
   //   const ds = new ListView.DataSource({
@@ -27,4 +33,8 @@ class DoorList extends Component {
   }
 }
 
-export default DoorList;
+const mapStateToProps = state => {
+  return state
+};
+
+export default connect(mapStateToProps, { doorsFetch })(DoorList);

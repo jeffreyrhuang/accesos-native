@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {
   ORIENTATION_CHOSEN,
   PUERTA_ABRE_SELECTED,
@@ -43,6 +44,9 @@ export const segmentarChanged = (boolean) => {
 
 export const doorsFetch = () => {
   return (dispatch) =>  {
-
-  }
+    console.log('doors being fetched');
+    axios.get('http://localhost:3000/api/v1/doors')
+      .then(response => console.log(response.data))
+      .catch(error => console.log(error.response.data));
+  };
 };
