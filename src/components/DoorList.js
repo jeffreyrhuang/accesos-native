@@ -1,25 +1,30 @@
 import React, { Component } from 'react';
-import { ListView } from 'react-native';
+import { View, Text, ListView } from 'react-native';
 
-class PuertaList extends Component {
+class DoorList extends Component {
 
-  createDataSource({ door }) {
-    const ds = new ListView.DataSource({
-      rowHasChanged: (r1, r2) => r1 !== r2
-    });
+  // createDataSource({ door }) {
+  //   const ds = new ListView.DataSource({
+  //     rowHasChanged: (r1, r2) => r1 !== r2
+  //   });
 
-    this.dataSource = ds.cloneWithRows(door);
-  }
+  //   this.dataSource = ds.cloneWithRows(door);
+  // }
 
   render() {
     return (
-      <ListView
-        enableEmptySections
-        dataSource={this.dataSource}
-        renderRow={this.renderRow}
-      />
+      <View>
+        <Text>
+          Door List
+        </Text>
+      </View>
+      //<ListView
+        //enableEmptySections
+        //dataSource={this.dataSource}
+        //renderRow={this.renderRow}
+      //>
     );
   }
 }
 
-export default PuertaList;
+export default DoorList;
