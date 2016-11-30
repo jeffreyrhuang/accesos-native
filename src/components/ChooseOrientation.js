@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { ScrollView, View, Dimensions } from 'react-native';
-import { Prompt, Card } from './common';
+import { Prompt } from './common';
 import Diagram from './Diagram';
 
 class ChooseOrientation extends Component {
-  render () {
+  render() {
     return (
       <ScrollView>
         <Prompt promptText="Choose one:" />
@@ -21,11 +21,11 @@ class ChooseOrientation extends Component {
           />
         </View>
       </ScrollView>
-    )
+    );
   }
 }
 
-const width = Dimensions.get('window').width
+const width = Dimensions.get('window').width;
 
 const styles = {
   viewContainerStyle: {
@@ -38,6 +38,6 @@ const styles = {
     width: (width / 2) - 20,
     height: 200,
   }
-}
+};
 
 export default ChooseOrientation;

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Picker, Text, Switch } from 'react-native';
+import { ScrollView, Picker, Text, Switch } from 'react-native';
 import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 import { Button, Prompt, CardSection } from './common';
 import { puertaAbreSelected, cerraduraSelected, cierraChanged, segmentarChanged } from '../actions';
-import { Actions } from 'react-native-router-flux';
 
-const Item = Picker.Item
+const Item = Picker.Item;
 
 class SelectTraits extends Component {
   onSubmit() {
@@ -20,7 +20,8 @@ class SelectTraits extends Component {
           <Picker
             style={{ flex: 1 }}
             selectedValue={this.props.puerta_abre}
-            onValueChange={(value) => this.props.puertaAbreSelected(value)}>
+            onValueChange={(value) => this.props.puertaAbreSelected(value)}
+          >
             <Item label='hacia afuera' value='hacia afuera' />
             <Item label='hacia adentro' value='hacia adentro' />
           </Picker>
@@ -30,7 +31,8 @@ class SelectTraits extends Component {
           <Picker
             style={{ flex: 1 }}
             selectedValue={this.props.cerradura}
-            onValueChange={(value) => this.props.cerraduraSelected(value)}>
+            onValueChange={(value) => this.props.cerraduraSelected(value)}
+          >
             <Item label='Corriente Yale' value='Corriente Yale' />
             <Item label='Eléctrico Yale' value='Eléctrico Yale' />
             <Item label='Ojos de candado' value='Ojos de candado' />
@@ -59,7 +61,7 @@ class SelectTraits extends Component {
           </Button>
         </CardSection>
       </ScrollView>
-    )
+    );
   }
 }
 
@@ -74,7 +76,7 @@ const styles = {
     marginTop: 20,
     marginBottom: 20
   }
-}
+};
 
 const mapStateToProps = state => {
   return {
