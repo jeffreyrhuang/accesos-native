@@ -18,7 +18,7 @@ export default (state = INITIAL_STATE, action) => {
     case CERRADURA_SELECTED:
       return { ...state, cerradura: action.payload };
     case CIERRAPUERTAS:
-      return { ...state, cierra: action.payload};
+      return { ...state, cierra: action.payload };
     case SEGMENTAR:
       return { ...state, segmentar: action.payload };
     default:
