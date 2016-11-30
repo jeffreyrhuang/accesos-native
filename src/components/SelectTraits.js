@@ -22,8 +22,8 @@ class SelectTraits extends Component {
             selectedValue={this.props.puerta_abre}
             onValueChange={(value) => this.props.puertaAbreSelected(value)}
           >
-            <Item label='hacia afuera' value='hacia afuera' />
-            <Item label='hacia adentro' value='hacia adentro' />
+            <Item label='hacia afuera' value='Hacia afuera' />
+            <Item label='hacia adentro' value='Hacia adentro' />
           </Picker>
         </CardSection>
         <CardSection>

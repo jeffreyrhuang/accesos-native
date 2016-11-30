@@ -4,7 +4,7 @@ import {
   CERRADURA_SELECTED,
   CIERRAPUERTAS,
   SEGMENTAR
-} from './types'
+} from './types';
 
 export const orientationChosen = (side) => {
   return {
@@ -39,4 +39,10 @@ export const segmentarChanged = (boolean) => {
     type: SEGMENTAR,
     payload: boolean
   };
+};
+
+export const doorsFetch = () => {
+  return (dispatch) =>  {
+
+  }
 };
