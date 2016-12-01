@@ -4,7 +4,8 @@ import {
   PUERTA_ABRE_SELECTED,
   CERRADURA_SELECTED,
   CIERRAPUERTAS,
-  SEGMENTAR
+  SEGMENTAR,
+  FETCH_DOORS_SUCCESS
 } from './types';
 
 export const orientationChosen = (side) => {
@@ -43,10 +44,13 @@ export const segmentarChanged = (boolean) => {
 };
 
 export const doorsFetch = () => {
-  return (dispatch) =>  {
+  return (dispatch) => {
     console.log('doors being fetched');
     axios.get('http://localhost:3000/api/v1/doors')
-      .then(response => console.log(response.data))
+      .then(response => {
+        console.log(response.data);
+        dispatch({ type: FETCH_DOORS_SUCCESS, payload: response.data });
+      })
       .catch(error => console.log(error.response.data));
   };
 };
