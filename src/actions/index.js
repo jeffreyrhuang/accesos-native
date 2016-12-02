@@ -1,45 +1,21 @@
 import axios from 'axios';
 import {
   ORIENTATION_CHOSEN,
-  PUERTA_ABRE_SELECTED,
-  CERRADURA_SELECTED,
-  CIERRAPUERTAS,
-  SEGMENTAR,
+  DOOR_UPDATE,
   FETCH_DOORS_SUCCESS
 } from './types';
+
+export const doorUpdate = ({ prop, value }) => {
+  return {
+    type: DOOR_UPDATE,
+    payload: { prop, value }
+  };
+};
 
 export const orientationChosen = (side) => {
   return {
     type: ORIENTATION_CHOSEN,
     payload: side
-  };
-};
-
-export const puertaAbreSelected = (value) => {
-  return {
-    type: PUERTA_ABRE_SELECTED,
-    payload: value
-  };
-};
-
-export const cerraduraSelected = (value) => {
-  return {
-    type: CERRADURA_SELECTED,
-    payload: value
-  };
-};
-
-export const cierraChanged = (boolean) => {
-  return {
-    type: CIERRAPUERTAS,
-    payload: boolean
-  };
-};
-
-export const segmentarChanged = (boolean) => {
-  return {
-    type: SEGMENTAR,
-    payload: boolean
   };
 };
 

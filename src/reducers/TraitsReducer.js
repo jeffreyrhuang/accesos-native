@@ -1,26 +1,19 @@
 import {
-  PUERTA_ABRE_SELECTED,
-  CERRADURA_SELECTED,
-  CIERRAPUERTAS,
-  SEGMENTAR
+  DOOR_UPDATE
 } from '../actions/types';
 
 const INITIAL_STATE = {
-  puerta_abre: null,
-  cerradura: null,
+  puerta_abre: '',
+  cerradura: '',
+  cierrapuertas: false,
   segmentar: false
 };
 
 export default (state = INITIAL_STATE, action) => {
+  console.log(action);
   switch (action.type) {
-    case PUERTA_ABRE_SELECTED:
-      return { ...state, puerta_abre: action.payload };
-    case CERRADURA_SELECTED:
-      return { ...state, cerradura: action.payload };
-    case CIERRAPUERTAS:
-      return { ...state, cierra: action.payload };
-    case SEGMENTAR:
-      return { ...state, segmentar: action.payload };
+    case DOOR_UPDATE:
+      return { ...state, [action.payload.prop]: action.payload.value };
     default:
       return state;
   }

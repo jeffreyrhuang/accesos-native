@@ -3,7 +3,7 @@ import { ScrollView, Picker, Text, Switch } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { Button, Prompt, CardSection } from './common';
-import { puertaAbreSelected, cerraduraSelected, cierraChanged, segmentarChanged } from '../actions';
+import { doorUpdate } from '../actions';
 
 const Item = Picker.Item;
 
@@ -20,7 +20,7 @@ class SelectTraits extends Component {
           <Picker
             style={{ flex: 1 }}
             selectedValue={this.props.puerta_abre}
-            onValueChange={(value) => this.props.puertaAbreSelected(value)}
+            onValueChange={value => this.props.doorUpdate({ prop: 'puerta_abre', value })}
           >
             <Item label='hacia afuera' value='Hacia afuera' />
             <Item label='hacia adentro' value='Hacia adentro' />
@@ -31,7 +31,7 @@ class SelectTraits extends Component {
           <Picker
             style={{ flex: 1 }}
             selectedValue={this.props.cerradura}
-            onValueChange={(value) => this.props.cerraduraSelected(value)}
+            onValueChange={value => this.props.doorUpdate({ prop: 'cerradura', value })}
           >
             <Item label='Corriente Yale' value='Corriente Yale' />
             <Item label='Eléctrico Yale' value='Eléctrico Yale' />
@@ -44,7 +44,7 @@ class SelectTraits extends Component {
           <Switch
             style={styles.switchStyle}
             value={this.props.cierra}
-            onValueChange={(boolean) => this.props.cierraChanged(boolean)}
+            onValueChange={value => this.props.doorUpdate({ prop: 'cierrapuertas', value })}
           />
         </CardSection>
         <CardSection>
@@ -52,7 +52,7 @@ class SelectTraits extends Component {
           <Switch
             style={styles.switchStyle}
             value={this.props.segmentar}
-            onValueChange={(boolean) => this.props.segmentarChanged(boolean)}
+            onValueChange={value => this.props.doorUpdate({ prop: 'segmentar', value })}
           />
         </CardSection>
         <CardSection>
@@ -82,9 +82,9 @@ const mapStateToProps = state => {
   return {
     puerta_abre: state.traits.puerta_abre,
     cerradura: state.traits.cerradura,
-    cierra: state.traits.cierra,
+    cierra: state.traits.cierrapuertas,
     segmentar: state.traits.segmentar
   };
 };
 
-export default connect(mapStateToProps, { puertaAbreSelected, cerraduraSelected, cierraChanged, segmentarChanged })(SelectTraits);
+export default connect(mapStateToProps, { doorUpdate })(SelectTraits);

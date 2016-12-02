@@ -12,7 +12,7 @@ class Diagram extends Component {
 
   render() {
     const { textContainerStyle, textStyle, imageStyle, containerStyle } = styles;
-    const { text, source } = this.props
+    const { text, source } = this.props;
 
     return (
       <TouchableOpacity onPress={this.onClick.bind(this)} style={containerStyle}>
@@ -39,6 +39,6 @@ const styles = {
   containerStyle: {
     flexDirection: 'column'
   }
-}
+};
 
 export default connect(null, actions)(Diagram);
