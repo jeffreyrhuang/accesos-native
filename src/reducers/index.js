@@ -6,5 +6,5 @@ import DoorsReducer from './DoorsReducer';
 export default combineReducers({
   orientation: OrientationReducer,
   traits: TraitsReducer,
-  doorState: DoorsReducer
+  doors: DoorsReducer
 });

@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ListView } from 'react-native';
@@ -31,7 +32,7 @@ class DoorList extends Component {
   }
 
   render() {
-    console.log(this.props);  // for testing
+    console.log(this.props.doors);  // for testing
 
     return (
       <ListView
@@ -45,7 +46,7 @@ class DoorList extends Component {
 
 const mapStateToProps = state => {
   return {
-    doors: state.doorState
+      doors: state.doors
   };
 };
 

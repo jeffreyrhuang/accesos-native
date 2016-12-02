@@ -45,10 +45,8 @@ export const segmentarChanged = (boolean) => {
 
 export const doorsFetch = () => {
   return (dispatch) => {
-    console.log('doors being fetched');
-    axios.get('http://localhost:3000/api/v1/doors')
+    return axios.get('http://localhost:3000/api/v1/doors')
       .then(response => {
-        console.log(response.data);
         dispatch({ type: FETCH_DOORS_SUCCESS, payload: response.data });
       })
       .catch(error => console.log(error.response.data));
