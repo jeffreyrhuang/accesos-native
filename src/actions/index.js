@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Actions } from 'react-native-router-flux';
 import {
   DOOR_UPDATE,
   DOOR_CREATE,
@@ -16,17 +17,18 @@ export const doorUpdate = ({ prop, value }) => {
 
 export const doorCreate = ({ orientation, puerta_abre, cerradura, cierrapuertas, segmentar }) => {
   return (dispatch) => {
-    axios.post(`${API_URL}/door`, { orientation, puerta_abre, cerradura, cierrapuertas, segmentar })
-      .then()
-  }
-  return {
-    type: DOOR_CREATE
+    axios.post(`${API_URL}/doors`, { orientation, puerta_abre, cerradura, cierrapuertas, segmentar })
+      .then(() => {
+        dispatch({ type: DOOR_CREATE });
+        Actions.doorList({ type: 'reset' });
+      })
+      .catch(error => console.log(error));
   };
 };
 
 export const doorsFetch = () => {
   return (dispatch) => {
-    return axios.get('http://localhost:3000/api/v1/doors')
+    return axios.get(`${API_URL}/doors`)
       .then(response => {
         dispatch({ type: FETCH_DOORS_SUCCESS, payload: response.data });
       })
