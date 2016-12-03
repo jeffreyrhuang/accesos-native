@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { View, Image, Text, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
-import * as actions from '../actions';
 import { Actions } from 'react-native-router-flux';
+import * as actions from '../actions';
 
 class Diagram extends Component {
   onClick() {
-    this.props.orientationChosen(this.props.text);
+    this.props.doorUpdate({ prop: 'orientation', value: this.props.text });
     Actions.traits();
   }
 

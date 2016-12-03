@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { ScrollView, View, TextInput, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { Prompt, Button } from './common';
+import { doorCreate } from '../actions';
 
 class FillDimensions extends Component {
 
   onSave() {
-    this.props.createPuerta();
+    this.props.doorCreate();
   }
 
   renderImage() {
@@ -100,9 +101,9 @@ const styles = {
 
 const mapStateToProps = state => {
   return {
-    orientation: state.orientation.orientation,
-    segmentar: state.traits.segmentar
+    orientation: state.doorForm.orientation,
+    segmentar: state.doorForm.segmentar
   };
 };
 
-export default connect(mapStateToProps)(FillDimensions);
+export default connect(mapStateToProps, { doorCreate })(FillDimensions);

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {
-  ORIENTATION_CHOSEN,
   DOOR_UPDATE,
+  DOOR_CREATE,
   FETCH_DOORS_SUCCESS
 } from './types';
 
@@ -12,10 +12,9 @@ export const doorUpdate = ({ prop, value }) => {
   };
 };
 
-export const orientationChosen = (side) => {
+export const doorCreate = () => {
   return {
-    type: ORIENTATION_CHOSEN,
-    payload: side
+    type: DOOR_CREATE
   };
 };
 

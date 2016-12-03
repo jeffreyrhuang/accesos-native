@@ -57,7 +57,7 @@ class SelectTraits extends Component {
         </CardSection>
         <CardSection>
           <Button onPress={this.onSubmit.bind(this)}>
-            Submit
+            Next
           </Button>
         </CardSection>
       </ScrollView>
@@ -80,10 +80,10 @@ const styles = {
 
 const mapStateToProps = state => {
   return {
-    puerta_abre: state.traits.puerta_abre,
-    cerradura: state.traits.cerradura,
-    cierra: state.traits.cierrapuertas,
-    segmentar: state.traits.segmentar
+    puerta_abre: state.doorForm.puerta_abre,
+    cerradura: state.doorForm.cerradura,
+    cierra: state.doorForm.cierrapuertas,
+    segmentar: state.doorForm.segmentar
   };
 };
 

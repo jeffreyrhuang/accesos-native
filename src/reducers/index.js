@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
-import OrientationReducer from './OrientationReducer';
-import TraitsReducer from './TraitsReducer';
+import DoorForm from './DoorFormReducer';
 import DoorsReducer from './DoorsReducer';
 
 export default combineReducers({
-  orientation: OrientationReducer,
-  traits: TraitsReducer,
+  doorForm: DoorForm,
   doors: DoorsReducer
 });
