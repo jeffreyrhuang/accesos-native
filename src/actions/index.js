@@ -5,6 +5,8 @@ import {
   FETCH_DOORS_SUCCESS
 } from './types';
 
+const API_URL = 'http://localhost:3000/api/v1';
+
 export const doorUpdate = ({ prop, value }) => {
   return {
     type: DOOR_UPDATE,
@@ -12,7 +14,11 @@ export const doorUpdate = ({ prop, value }) => {
   };
 };
 
-export const doorCreate = () => {
+export const doorCreate = ({ orientation, puerta_abre, cerradura, cierrapuertas, segmentar }) => {
+  return (dispatch) => {
+    axios.post(`${API_URL}/door`, { orientation, puerta_abre, cerradura, cierrapuertas, segmentar })
+      .then()
+  }
   return {
     type: DOOR_CREATE
   };

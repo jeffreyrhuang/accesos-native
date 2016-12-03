@@ -7,15 +7,17 @@ import { doorCreate } from '../actions';
 class FillDimensions extends Component {
 
   onSave() {
-    this.props.doorCreate();
+    const { orientation, puerta_abre, cerradura, cierrapuertas, segmentar } = this.props;
+
+    this.props.doorCreate({ orientation, puerta_abre, cerradura, cierrapuertas, segmentar });
   }
 
   renderImage() {
     const { orientation, segmentar } = this.props;
-    const { image, derInput1, derInput2, input} = styles;
+    const { image, derInput1, derInput2, input } = styles;
 
     if (orientation === 'Derecha' && segmentar === false) {
-      return(
+      return (
         <Image style={image} source={require('../img/fill-der.png')}>
           <View style={derInput1}>
             <TextInput style={input} />
@@ -26,7 +28,7 @@ class FillDimensions extends Component {
         </Image>
       );
     } else if (orientation === 'Izquierda' && segmentar === false) {
-      return(
+      return (
         <Image style={image} source={require('../img/fill-izq.png')}>
           <View style={derInput2}>
             <TextInput style={input} />
@@ -34,14 +36,14 @@ class FillDimensions extends Component {
         </Image>
       );
     } else if (orientation === 'Derecha' && segmentar) {
-      return(
+      return (
         <Image style={[image, { marginLeft: 3 }]} source={require('../img/fill-seg-der.png')}>
           <View>
           </View>
         </Image>
       );
     } else if (orientation === 'Izquierda' && segmentar) {
-      return(
+      return (
         <Image style={image} source={require('../img/fill-seg-izq.png')}>
           <View>
 
@@ -102,6 +104,9 @@ const styles = {
 const mapStateToProps = state => {
   return {
     orientation: state.doorForm.orientation,
+    puerta_abre: state.doorForm.puerta_abre,
+    cerradura: state.doorForm.cerradura,
+    cierra: state.doorForm.cierrapuertas,
     segmentar: state.doorForm.segmentar
   };
 };
