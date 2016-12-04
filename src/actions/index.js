@@ -17,12 +17,21 @@ export const doorUpdate = ({ prop, value }) => {
 
 export const doorCreate = ({ orientation, puerta_abre, cerradura, cierrapuertas, segmentar }) => {
   return (dispatch) => {
-    axios.post(`${API_URL}/doors`, { orientation, puerta_abre, cerradura, cierrapuertas, segmentar })
-      .then(() => {
-        dispatch({ type: DOOR_CREATE });
-        Actions.doorList({ type: 'reset' });
-      })
-      .catch(error => console.log(error));
+    axios({
+      method: 'POST',
+      url: `${API_URL}/doors`,
+      responseType: 'json',
+      headers: { 'Content-Type': 'application/json' },
+      data: {
+        door: { orientation, puerta_abre, cerradura, cierrapuertas, segmentar }
+      }
+    })
+    .then((response) => {
+      dispatch({ type: DOOR_CREATE });
+      console.log(response);
+      Actions.doorlist({ type: 'reset' });
+    })
+    .catch(error => console.log(error.response.data));
   };
 };
 
