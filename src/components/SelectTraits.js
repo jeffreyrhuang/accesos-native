@@ -43,7 +43,7 @@ class SelectTraits extends Component {
           <Text style={styles.labelStyle}>Cierrapuertas</Text>
           <Switch
             style={styles.switchStyle}
-            value={this.props.cierra}
+            value={this.props.cierrapuertas}
             onValueChange={value => this.props.doorUpdate({ prop: 'cierrapuertas', value })}
           />
         </CardSection>
@@ -82,7 +82,7 @@ const mapStateToProps = state => {
   return {
     puerta_abre: state.doorForm.puerta_abre,
     cerradura: state.doorForm.cerradura,
-    cierra: state.doorForm.cierrapuertas,
+    cierrapuertas: state.doorForm.cierrapuertas,
     segmentar: state.doorForm.segmentar
   };
 };

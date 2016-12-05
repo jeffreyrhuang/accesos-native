@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ListView } from 'react-native';
@@ -9,13 +8,10 @@ class DoorList extends Component {
 
   componentWillMount() {
     this.props.doorsFetch();
-
     this.createDataSource(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
-    // nextProps are the next set of props that this component will be rendered with
-    // this.props is still the old set of props
     this.createDataSource(nextProps);
   }
 
@@ -32,8 +28,6 @@ class DoorList extends Component {
   }
 
   render() {
-    console.log(this.props.doors);  // for testing
-
     return (
       <ListView
         enableEmptySections

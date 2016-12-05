@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Actions } from 'react-native-router-flux';
+import { Actions, ActionConst } from 'react-native-router-flux';
 import {
   DOOR_UPDATE,
   DOOR_CREATE,
@@ -29,7 +29,7 @@ export const doorCreate = ({ orientation, puerta_abre, cerradura, cierrapuertas,
     .then((response) => {
       dispatch({ type: DOOR_CREATE });
       console.log(response);
-      Actions.doorlist({ type: 'reset' });
+      Actions.doorlist({ type: ActionConst.RESET });
     })
     .catch(error => console.log(error.response.data));
   };
