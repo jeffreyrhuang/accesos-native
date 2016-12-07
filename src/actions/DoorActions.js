@@ -1,12 +1,11 @@
 import axios from 'axios';
 import { Actions, ActionConst } from 'react-native-router-flux';
+import API_URL from '../config';
 import {
   DOOR_UPDATE,
   DOOR_CREATE,
   FETCH_DOORS_SUCCESS
 } from './types';
-
-const API_URL = 'http://localhost:3000/api/v1';
 
 export const doorUpdate = ({ prop, value }) => {
   return {
