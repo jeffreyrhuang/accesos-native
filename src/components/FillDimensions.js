@@ -7,9 +7,9 @@ import { doorCreate } from '../actions';
 class FillDimensions extends Component {
 
   onSave() {
-    const { orientation, puerta_abre, cerradura, cierrapuertas, segmentar } = this.props;
+    const { current_user, orientation, puerta_abre, cerradura, cierrapuertas, segmentar } = this.props;
 
-    this.props.doorCreate({ orientation, puerta_abre, cerradura, cierrapuertas, segmentar });
+    this.props.doorCreate({ current_user, orientation, puerta_abre, cerradura, cierrapuertas, segmentar });
   }
 
   renderImage() {
@@ -103,6 +103,7 @@ const styles = {
 
 const mapStateToProps = state => {
   return {
+    current_user: state.auth.current_user.data,
     orientation: state.doorForm.orientation,
     puerta_abre: state.doorForm.puerta_abre,
     cerradura: state.doorForm.cerradura,

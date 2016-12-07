@@ -40,7 +40,7 @@ class DoorList extends Component {
 
 const mapStateToProps = state => {
   return {
-      doors: state.doors
+    doors: state.doors
   };
 };
 

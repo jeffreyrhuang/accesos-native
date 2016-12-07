@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Actions, ActionConst } from 'react-native-router-flux';
-import API_URL from '../config';
+import { API_URL } from '../config';
 import {
   DOOR_UPDATE,
   DOOR_CREATE,
@@ -14,13 +14,19 @@ export const doorUpdate = ({ prop, value }) => {
   };
 };
 
-export const doorCreate = ({ orientation, puerta_abre, cerradura, cierrapuertas, segmentar }) => {
+export const doorCreate = ({
+  current_user, orientation, puerta_abre, cerradura, cierrapuertas, segmentar
+}) => {
   return (dispatch) => {
     axios({
       method: 'POST',
       url: `${API_URL}/doors`,
       responseType: 'json',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'X-User-Email': current_user.email,
+        'X-User-Token': current_user.authentication_token
+      },
       data: {
         door: { orientation, puerta_abre, cerradura, cierrapuertas, segmentar }
       }

@@ -9,7 +9,7 @@ import {
 const INITIAL_STATE = {
   email: '',
   password: '',
-  user: null,
+  current_user: null,
   error: '',
   loading: false
 };
@@ -22,6 +22,10 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, password: action.payload };
     case LOGIN_USER:
       return { ...state, loading: true, error: '' };
+    case LOGIN_USER_SUCCESS:
+      return { ...state, ...INITIAL_STATE, current_user: action.payload };
+    case LOGIN_USER_FAIL:
+      return { ...state, loading: false, password: '', error: 'Authentication Failed' };
     default:
       return state;
   }

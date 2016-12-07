@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Actions } from 'react-native-router-flux';
-import API_URL from '../config';
+import { API_URL } from '../config';
 import {
   EMAIL_CHANGED,
   PASSWORD_CHANGED,
@@ -28,19 +28,19 @@ export const loginUser = ({ email, password }) => {
     dispatch({ type: LOGIN_USER });
     axios({
       method: 'POST',
-      url: `${API_URL}/users/auth`, // unconfirmed url
+      url: `${API_URL}/sessions`,
       responseType: 'json',
       headers: {
         'Accept': 'application/json',  // need auth headers
         'Content-Type': 'application/json'
       },
       data: {
-        user: { email, password }
+        session: { email, password }
       }
     })
     .then(user => loginUserSuccess(dispatch, user))
     .catch(error => {
-      console.log(error);
+      console.log(error.response.data);
       loginUserFail(dispatch);
     });
   };
