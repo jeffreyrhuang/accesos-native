@@ -54,7 +54,7 @@ class FillDimensions extends Component {
   }
 
   render() {
-    return(
+    return (
       <ScrollView>
         <Prompt promptText="Fill in dimensions" />
         <View style={styles.imageContainer}>
