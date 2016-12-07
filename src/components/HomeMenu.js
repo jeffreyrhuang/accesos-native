@@ -4,28 +4,20 @@ import { Actions } from 'react-native-router-flux';
 import { Card, CardSection } from './common';
 
 class HomeMenu extends Component {
-  onPressPuerta() {
-    Actions.puertas();
-  }
-
-  onPressDiag() {
-
-  }
-
   render() {
     return (
       <View>
         <Card>
           <CardSection style={styles.cardSection}>
             <Button
-              onPress={this.onPressDiag.bind(this)}
+              onPress={Actions.diag1}
               title="Diagnostico"
               color="#841584"
             />
           </CardSection>
           <CardSection style={styles.cardSection}>
             <Button
-              onPress={this.onPressPuerta.bind(this)}
+              onPress={Actions.doorlist}
               title="Puertas"
               color="#841584"
             />
