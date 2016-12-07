@@ -20,6 +20,9 @@ export const passwordChanged = (text) => {
   };
 };
 
-// export const loginUser = () => {
-
-// }
+export const loginUser = (text) => {
+  return {
+    type: LOGIN_USER,
+    payload: text
+  };
+};
