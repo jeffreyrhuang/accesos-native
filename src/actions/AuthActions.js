@@ -31,7 +31,7 @@ export const loginUser = ({ email, password }) => {
       url: `${API_URL}/sessions`,
       responseType: 'json',
       headers: {
-        'Accept': 'application/json',  // need auth headers
+        'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       data: {
@@ -41,7 +41,7 @@ export const loginUser = ({ email, password }) => {
     .then(user => loginUserSuccess(dispatch, user))
     .catch(error => {
       console.log(error.response.data);
-      loginUserFail(dispatch);
+      loginUserFail(dispatch, error);
     });
   };
 };
@@ -54,6 +54,9 @@ const loginUserSuccess = (dispatch, user) => {
   Actions.main();
 };
 
-const loginUserFail = (dispatch) => {
-  dispatch({ type: LOGIN_USER_FAIL });
+const loginUserFail = (dispatch, error) => {
+  dispatch({
+    type: LOGIN_USER_FAIL,
+    payload: error.response.data.error
+  });
 };
