@@ -10,11 +10,15 @@ import Diagnostic1 from './components/Diagnostic1';
 
 const RouterComponent = () => {
   return (
-    <Router sceneStyle={{ paddingTop: 65 }}>
+    <Router
+      sceneStyle={{ paddingTop: 65 }}
+      navigationBarStyle={styles.navigationBar}
+      titleStyle={{ color: '#FFF' }}
+    >
       <Scene key="root">
 
         <Scene key="auth">
-          <Scene key="login" component={LoginForm} title="Login" />
+          <Scene key="login" component={LoginForm} title="Iniciar Sesión" />
         </Scene>
 
         <Scene key="main">
@@ -23,11 +27,11 @@ const RouterComponent = () => {
           <Scene
             key="doorlist"
             component={DoorList}
-            title="Door List"
+            title="Puertas"
             onRight={() => Actions.orientation()}
             rightTitle='Add'
           />
-          <Scene key="orientation" component={ChooseOrientation} title="Orientation" />
+          <Scene key="orientation" component={ChooseOrientation} title="Orientación" />
           <Scene key="traits" component={SelectTraits} title="Traits" />
           <Scene key="dimensions" component={FillDimensions} title="Dimensions" />
         </Scene>
@@ -35,6 +39,12 @@ const RouterComponent = () => {
       </Scene>
     </Router>
   );
+};
+
+const styles = {
+  navigationBar: {
+    backgroundColor: '#163D7D'
+  }
 };
 
 export default RouterComponent;

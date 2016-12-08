@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { View, StatusBar } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
@@ -17,7 +18,10 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router />
+        <View style={{ flex: 1 }}>
+          <StatusBar barStyle='light-content' />
+          <Router />
+        </View>
       </Provider>
     );
   }

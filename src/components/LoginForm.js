@@ -26,7 +26,7 @@ class LoginForm extends Component {
 
     return (
       <Button onPress={this.onButtonPress.bind(this)}>
-        Login
+        Iniciar Sesión
       </Button>
     );
   }
@@ -35,13 +35,17 @@ class LoginForm extends Component {
     return (
       <View>
         <View style={styles.logoContainer}>
-          <Image style={styles.logo} resizeMode={Image.resizeMode.contain} source={require('../img/accesoslogo.png')} />
+          <Image
+            style={styles.logo}
+            resizeMode={Image.resizeMode.contain}
+            source={require('../img/accesoslogo.png')}
+          />
         </View>
         <Card>
           <CardSection>
             <Input
               label='Email'
-              placeholder='email@gmail.com'
+              placeholder='usuario@accesos.co.cr'
               onChangeText={this.onEmailChange.bind(this)}
               value={this.props.email}
             />
@@ -49,8 +53,8 @@ class LoginForm extends Component {
           <CardSection>
             <Input
               secureTextEntry
-              label='Password'
-              placeholder='password'
+              label='Contraseña'
+              placeholder='secreto'
               onChangeText={this.onPasswordChange.bind(this)}
               value={this.props.password}
             />
