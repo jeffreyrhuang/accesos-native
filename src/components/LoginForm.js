@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
 import { Card, CardSection, Input, Button, Spinner } from './common';
@@ -33,42 +33,53 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <Card>
-        <CardSection>
-          <Input
-            label='Email'
-            placeholder='email@gmail.com'
-            onChangeText={this.onEmailChange.bind(this)}
-            value={this.props.email}
-          />
-        </CardSection>
-        <CardSection>
-          <Input
-            secureTextEntry
-            label='Password'
-            placeholder='password'
-            onChangeText={this.onPasswordChange.bind(this)}
-            value={this.props.password}
-          />
-        </CardSection>
+      <View>
+        <View style={styles.logoContainer}>
+          <Image style={styles.logo} resizeMode={Image.resizeMode.contain} source={require('../img/accesoslogo.png')} />
+        </View>
+        <Card>
+          <CardSection>
+            <Input
+              label='Email'
+              placeholder='email@gmail.com'
+              onChangeText={this.onEmailChange.bind(this)}
+              value={this.props.email}
+            />
+          </CardSection>
+          <CardSection>
+            <Input
+              secureTextEntry
+              label='Password'
+              placeholder='password'
+              onChangeText={this.onPasswordChange.bind(this)}
+              value={this.props.password}
+            />
+          </CardSection>
 
-        <Text style={styles.errorTextStyle}>
-          {this.props.error}
-        </Text>
+          <Text style={styles.errorText}>
+            {this.props.error}
+          </Text>
 
-        <CardSection>
-          {this.renderButton()}
-        </CardSection>
-      </Card>
+          <CardSection>
+            {this.renderButton()}
+          </CardSection>
+        </Card>
+      </View>
     );
   }
 }
 
 const styles = {
-  errorTextStyle: {
+  errorText: {
     fontSize: 20,
     alignSelf: 'center',
     color: 'red'
+  },
+  logo: {
+    width: 270,
+  },
+  logoContainer: {
+    alignItems: 'center'
   }
 };
 
