@@ -22,6 +22,6 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center'
   }
-}
+};
 
 export { Prompt };
