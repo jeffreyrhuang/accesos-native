@@ -7,7 +7,9 @@ import ListItem from './ListItem';
 class DoorList extends Component {
 
   componentWillMount() {
-    this.props.doorsFetch();
+    const { current_user } = this.props;
+
+    this.props.doorsFetch({ current_user });
     this.createDataSource(this.props);
   }
 
@@ -40,7 +42,8 @@ class DoorList extends Component {
 
 const mapStateToProps = state => {
   return {
-    doors: state.doors
+    doors: state.doors,
+    current_user: state.auth.current_user.data
   };
 };
 

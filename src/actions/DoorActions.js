@@ -37,15 +37,26 @@ export const doorCreate = ({
       Actions.doorlist({ type: ActionConst.RESET });
     })
     .catch(error => console.log(error.response.data));
+    // Add redirect to login
   };
 };
 
-export const doorsFetch = () => {
+export const doorsFetch = ({ current_user }) => {
   return (dispatch) => {
-    return axios.get(`${API_URL}/doors`)
-      .then(response => {
-        dispatch({ type: FETCH_DOORS_SUCCESS, payload: response.data });
-      })
-      .catch(error => console.log(error.response.data));
+    axios({
+      method: 'GET',
+      url: `${API_URL}/doors`,
+      responseType: 'json',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-User-Email': current_user.email,
+        'X-User-Token': current_user.authentication_token
+      }
+    })
+    .then(response => {
+      dispatch({ type: FETCH_DOORS_SUCCESS, payload: response.data });
+    })
+    .catch(error => console.log(error.response.data));
+    // Add redirect to login
   };
 };
