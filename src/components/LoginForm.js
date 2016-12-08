@@ -41,6 +41,9 @@ class LoginForm extends Component {
             source={require('../img/accesoslogo.png')}
           />
         </View>
+        <Text style={styles.errorText}>
+          {this.props.error}
+        </Text>
         <Card>
           <CardSection>
             <Input
@@ -59,11 +62,6 @@ class LoginForm extends Component {
               value={this.props.password}
             />
           </CardSection>
-
-          <Text style={styles.errorText}>
-            {this.props.error}
-          </Text>
-
           <CardSection>
             {this.renderButton()}
           </CardSection>
