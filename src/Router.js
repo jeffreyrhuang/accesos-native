@@ -13,6 +13,7 @@ const RouterComponent = () => {
     <Router
       sceneStyle={{ paddingTop: 65 }}
       navigationBarStyle={styles.navigationBar}
+      leftButtonIconStyle={{ tintColor: 'white' }}
       titleStyle={{ color: '#FFF' }}
     >
       <Scene key="root">
@@ -21,7 +22,7 @@ const RouterComponent = () => {
           <Scene key="login" component={LoginForm} title="Iniciar Sesión" />
         </Scene>
 
-        <Scene key="main">
+        <Scene key="main" initial>
           <Scene key="home" component={HomeMenu} title="Home Menu" />
           <Scene key="diag1" component={Diagnostic1} />
           <Scene
