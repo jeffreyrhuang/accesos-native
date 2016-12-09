@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Modal, Text, TextInput, TouchableOpacity, TouchableHighlight } from 'react-native';
+import Icon from 'react-native-vector-icons/EvilIcons';
 
 class ModalSelect extends Component {
 
@@ -62,11 +63,14 @@ class ModalSelect extends Component {
         </View>
 
         <TouchableHighlight onPress={() => { this.setModalVisible(true) }}>
-          <TextInput
-            style={{ height: 30, padding: 10, borderColor: '#ccc', borderWidth: 1 }}
-            editable={false}
-            value={this.props.value}
-          />
+          <View>
+            <TextInput
+              style={styles.textInput}
+              editable={false}
+              value={this.props.value}
+            />
+            <Icon name='chevron-down' size={30} />
+          </View>
         </TouchableHighlight>
 
       </View>
@@ -92,6 +96,12 @@ const styles = {
     width: 300,
     backgroundColor: '#eee',
     padding: 10
+  },
+  textInput: {
+    height: 30,
+    padding: 10,
+    borderColor: '#ccc',
+    borderWidth: 1
   },
   topicText: {
     fontSize: 16,
