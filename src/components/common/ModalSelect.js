@@ -14,7 +14,7 @@ class ModalSelect extends Component {
 
   onSelect(option) {
     this.setModalVisible(false);
-    this.props.onChange({ prop: this.props.name, value: option.value, isFilled: true });
+    this.props.onChange({ prop: this.props.name, value: option.label, isFilled: true });
   }
 
   setModalVisible(visible) {
@@ -22,7 +22,7 @@ class ModalSelect extends Component {
   }
 
   renderIcon() {
-    if (this.props.value !== 'seleccionar') {
+    if (this.props.isFilled) {
       return (
         <Icon name='check' size={18} style={{ alignSelf: 'flex-end', color: 'green' }} />
       );
@@ -41,7 +41,7 @@ class ModalSelect extends Component {
           onPress={() => this.onSelect(option)}
         >
           <View style={styles.labelContainer}>
-            <Text>{option.value}</Text>
+            <Text>{option.label}</Text>
           </View>
         </TouchableOpacity>
       );
@@ -73,7 +73,7 @@ class ModalSelect extends Component {
           <Text style={styles.topicText}>{this.props.topic}</Text>
         </View>
 
-        <TouchableOpacity onPress={() => { this.setModalVisible(true) }}>
+        <TouchableOpacity onPress={() => { this.setModalVisible(true); }}>
           <View style={styles.selectionContainer}>
             <View style={{ flex: 4 }}>
               <Text>
