@@ -8,13 +8,18 @@ class ModalSelect extends Component {
     super();
 
     this.state = {
-      modalVisible: false,
+      modalVisible: false
     };
   }
 
   onSelect(option) {
     this.setModalVisible(false);
     this.props.onChange({ prop: this.props.name, value: option.label, isFilled: true });
+  }
+
+  onClear() {
+    this.setModalVisible(false);
+    this.props.onChange({ prop: this.props.name, value: 'seleccionar', isFilled: false });
   }
 
   setModalVisible(visible) {
@@ -40,7 +45,7 @@ class ModalSelect extends Component {
           style={styles.modalSelect}
           onPress={() => this.onSelect(option)}
         >
-          <View style={styles.labelContainer}>
+          <View style={styles.optionContainer}>
             <Text>{option.label}</Text>
           </View>
         </TouchableOpacity>
@@ -60,11 +65,20 @@ class ModalSelect extends Component {
           onRequestClose={() => this.setModalVisible(false)}
         >
           <View style={{ alignItems: 'center' }}>
-            <View style={styles.modalContentContainer}>
-              <View style={styles.topicTextContainer}>
-                <Text style={styles.topicTextModal}>{this.props.topic}</Text>
+            <View style={styles.modalContainer}>
+              <View style={styles.modalOptionsContainer}>
+                <View style={styles.topicTextContainer}>
+                  <Text style={styles.topicTextModal}>{this.props.topic}</Text>
+                </View>
+                {this.renderOptionList()}
               </View>
-              {this.renderOptionList()}
+              <View>
+                <TouchableOpacity style={styles.clearButton} onPress={() => this.onClear()}>
+                  <Text>
+                    Clear
+                  </Text>
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
         </Modal>
@@ -99,16 +113,19 @@ const styles = {
     borderColor: 'blue',
     marginBottom: 5
   },
-  labelContainer: {
+  optionContainer: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    paddingLeft: 8
   },
-  modalContentContainer: {
-    marginTop: 100,
-    width: 300,
+  modalContainer: {
     backgroundColor: '#eee',
-    padding: 10
+    padding: 10,
+    marginTop: 100,
+    width: 320,
+    height: 700
+  },
+  modalOptionsContainer: {
   },
   selectionContainer: {
     borderColor: '#ccc',
@@ -127,6 +144,14 @@ const styles = {
   topicTextModal: {
     fontWeight: 'bold'
   },
+  clearButton: {
+    padding: 10,
+    marginTop: 20,
+    borderWidth: 1,
+    borderColor: '#000',
+    borderRadius: 3,
+    alignSelf: 'center'
+  }
 };
 
 export { ModalSelect };
