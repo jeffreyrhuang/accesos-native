@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { View, Modal, Text, TouchableOpacity } from 'react-native';
+import { View, Modal, Text, TouchableOpacity, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+
+const { height, width } = Dimensions.get('window');
 
 class ModalSelect extends Component {
 
@@ -76,9 +78,9 @@ class ModalSelect extends Component {
           visible={this.state.modalVisible}
           onRequestClose={() => this.setModalVisible(false)}
         >
-          <View style={{ alignItems: 'center' }}>
-            <View style={styles.modalContainer}>
-              <View style={styles.modalOptionsContainer}>
+          <View style={styles.overlay}>
+            <View style={styles.modal}>
+              <View>
                 <View style={styles.topicTextContainer}>
                   <Text style={styles.topicTextModal}>{this.props.topic}</Text>
                 </View>
@@ -129,14 +131,19 @@ const styles = {
     flexDirection: 'row',
     alignItems: 'center'
   },
-  modalContainer: {
+  modal: {
     backgroundColor: '#fff',
+    borderRadius: 10,
     padding: 10,
-    marginTop: 70,
+    marginTop: 30,
     width: 330,
-    height: 700
+    height: 600
   },
-  modalOptionsContainer: {
+  overlay: {
+    alignItems: 'center',
+    height,
+    width,
+    backgroundColor: '#f2f2f2'
   },
   selectionContainer: {
     borderColor: '#ccc',
