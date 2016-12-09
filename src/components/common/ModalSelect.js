@@ -4,19 +4,11 @@ import { View, Modal, Text, TouchableOpacity, TouchableHighlight } from 'react-n
 class ModalSelect extends Component {
 
   constructor() {
-
     super();
 
     this.state = {
       modalVisible: false,
       selected: 'please select'
-    };
-  }
-
-  ComponentWillMount() {
-    this.setState = {
-      modalVisible: false,
-      selected: 'none'
     };
   }
 
@@ -30,15 +22,14 @@ class ModalSelect extends Component {
   }
 
   renderOptionList() {
-    console.log(this.props.data); // an array as expected
     const options = this.props.data.map((option, i) => {
       return (
         <TouchableOpacity
           key={i}
-          style={{ height: 50, width: 200, borderWidth: 1, borderColor: 'blue' }}
+          style={styles.modalSelect}
           onPress={() => this.onSelect(option)}
         >
-          <View>
+          <View style={styles.textContainer}>
             <Text>{option.label}</Text>
           </View>
         </TouchableOpacity>
@@ -60,12 +51,15 @@ class ModalSelect extends Component {
       <View style={{ marginTop: 22 }}>
         <Modal
           animationType={'slide'}
-          transparent={false}
+          transparent={true}
           visible={this.state.modalVisible}
+          onRequestClose={() => this.setModalVisible(false)}
         >
-          <View style={{ marginTop: 22 }}>
-            <Text>OptionList</Text>
-            {this.renderOptionList()}
+          <View style={{ alignItems: 'center' }}>
+            <View style={{ marginTop: 100, width: 300, backgroundColor: '#eee' }}>
+              <Text>OptionList</Text>
+              {this.renderOptionList()}
+            </View>
           </View>
         </Modal>
 
@@ -77,6 +71,21 @@ class ModalSelect extends Component {
     );
   }
 }
+
+const styles = {
+  modalSelect: {
+    height: 50,
+    alignSelf: 'stretch',
+    borderWidth: 1,
+    borderColor: 'blue',
+    marginBottom: 5
+  },
+  textContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+};
 
 export { ModalSelect };
 
