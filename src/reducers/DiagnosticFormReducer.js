@@ -4,7 +4,7 @@ import {
 
 const INITIAL_STATE = {
   diag1: {
-    value: 'seleccionar',
+    value: 'Seleccionar',
     isFilled: false
   }
 };

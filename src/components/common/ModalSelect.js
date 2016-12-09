@@ -19,7 +19,7 @@ class ModalSelect extends Component {
 
   onClear() {
     this.setModalVisible(false);
-    this.props.onChange({ prop: this.props.name, value: 'seleccionar', isFilled: false });
+    this.props.onChange({ prop: this.props.name, value: 'Seleccionar', isFilled: false });
   }
 
   setModalVisible(visible) {
@@ -33,7 +33,7 @@ class ModalSelect extends Component {
       );
     }
     return (
-      <Icon name='chevron-down' size={18} style={{ alignSelf: 'flex-end' }} />
+      <Icon name='circle-thin' size={18} style={{ alignSelf: 'flex-end' }} />
     );
   }
 
