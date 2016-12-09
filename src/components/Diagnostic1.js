@@ -13,13 +13,14 @@ class Diagnostic1 extends Component {
           name={'diag1'}
           topic={'1. La puerta o portón se mueve libre y con facilidad manualmente?*'}
           data={[
-            { label: 'Si, puerta/portón se mueve con facilidad', value: 'Option 1' },
-            { label: 'No, daños en montaje o rodamiento', value: 'Option 2' },
-            { label: 'No, falta limpieza', value: 'Option 3' },
-            { label: 'No, portón muy grande duro de mover', value: 'Option 4' }
+            { value: 'Si, puerta/portón se mueve con facilidad' },
+            { value: 'No, daños en montaje o rodamiento' },
+            { value: 'No, falta limpieza' },
+            { value: 'No, portón muy grande duro de mover' }
           ]}
-          value={this.props.diag1}
-          onChange={({ prop, value }) => this.props.selectModalOption({ prop, value })}
+          isFilled={this.props.diag1.isFilled}
+          value={this.props.diag1.value}
+          onChange={({ prop, value, isFilled }) => this.props.selectModalOption({ prop, value, isFilled })}
         />
       </View>
     );

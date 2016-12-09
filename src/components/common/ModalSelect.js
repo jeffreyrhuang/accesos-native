@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, Modal, Text, TextInput, TouchableOpacity, TouchableHighlight } from 'react-native';
-import Icon from 'react-native-vector-icons/EvilIcons';
+import { View, Modal, Text, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class ModalSelect extends Component {
 
@@ -14,11 +14,22 @@ class ModalSelect extends Component {
 
   onSelect(option) {
     this.setModalVisible(false);
-    this.props.onChange({ prop: this.props.name, value: option.value });
+    this.props.onChange({ prop: this.props.name, value: option.value, isFilled: true });
   }
 
   setModalVisible(visible) {
     this.setState({ modalVisible: visible });
+  }
+
+  renderIcon() {
+    if (this.props.value !== 'seleccionar') {
+      return (
+        <Icon name='check' size={18} style={{ alignSelf: 'flex-end', color: 'green' }} />
+      );
+    }
+    return (
+      <Icon name='chevron-down' size={18} style={{ alignSelf: 'flex-end' }} />
+    );
   }
 
   renderOptionList() {
@@ -30,7 +41,7 @@ class ModalSelect extends Component {
           onPress={() => this.onSelect(option)}
         >
           <View style={styles.labelContainer}>
-            <Text>{option.label}</Text>
+            <Text>{option.value}</Text>
           </View>
         </TouchableOpacity>
       );
@@ -62,16 +73,18 @@ class ModalSelect extends Component {
           <Text style={styles.topicText}>{this.props.topic}</Text>
         </View>
 
-        <TouchableHighlight onPress={() => { this.setModalVisible(true) }}>
-          <View>
-            <TextInput
-              style={styles.textInput}
-              editable={false}
-              value={this.props.value}
-            />
-            <Icon name='chevron-down' size={30} />
+        <TouchableOpacity onPress={() => { this.setModalVisible(true) }}>
+          <View style={styles.selectionContainer}>
+            <View style={{ flex: 4 }}>
+              <Text>
+                {this.props.value}
+              </Text>
+            </View>
+            <View style={{ flex: 1 }}>
+              {this.renderIcon()}
+            </View>
           </View>
-        </TouchableHighlight>
+        </TouchableOpacity>
 
       </View>
     );
@@ -97,11 +110,13 @@ const styles = {
     backgroundColor: '#eee',
     padding: 10
   },
-  textInput: {
-    height: 30,
-    padding: 10,
+  selectionContainer: {
     borderColor: '#ccc',
-    borderWidth: 1
+    borderBottomWidth: 1,
+    padding: 5,
+    paddingTop: 10,
+    alignItems: 'center',
+    flexDirection: 'row',
   },
   topicText: {
     fontSize: 16,
