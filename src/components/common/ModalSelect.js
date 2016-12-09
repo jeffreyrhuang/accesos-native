@@ -37,6 +37,13 @@ class ModalSelect extends Component {
     );
   }
 
+  renderModalIcon(label) {
+    if (label == this.props.value) {
+      return <Icon name='dot-circle-o' size={18} style={{ alignSelf: 'flex-end' }} />;
+    }
+    return <Icon name='circle-thin' size={18} style={{ alignSelf: 'flex-end' }} />;
+  }
+
   renderOptionList() {
     const options = this.props.data.map((option, i) => {
       return (
@@ -46,7 +53,12 @@ class ModalSelect extends Component {
           onPress={() => this.onSelect(option)}
         >
           <View style={styles.optionContainer}>
-            <Text>{option.label}</Text>
+            <View style={{ flex: 1 }}>
+              {this.renderModalIcon(option.label)}
+            </View>
+            <View style={{ flex: 15, paddingLeft: 5 }}>
+              <Text>{option.label}</Text>
+            </View>
           </View>
         </TouchableOpacity>
       );
@@ -109,20 +121,19 @@ const styles = {
   modalSelect: {
     height: 50,
     alignSelf: 'stretch',
-    borderWidth: 1,
-    borderColor: 'blue',
     marginBottom: 5
   },
   optionContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    paddingLeft: 8
+    padding: 5,
+    paddingTop: 15,
+    flexDirection: 'row',
+    alignItems: 'center'
   },
   modalContainer: {
-    backgroundColor: '#eee',
+    backgroundColor: '#fff',
     padding: 10,
-    marginTop: 100,
-    width: 320,
+    marginTop: 70,
+    width: 330,
     height: 700
   },
   modalOptionsContainer: {
