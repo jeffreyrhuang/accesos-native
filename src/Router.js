@@ -24,7 +24,7 @@ const RouterComponent = () => {
 
         <Scene key="main" initial>
           <Scene key="home" component={HomeMenu} title="Home Menu" />
-          <Scene key="diag1" component={Diagnostic1} />
+          <Scene key="diag1" component={Diagnostic1} title="Diagnóstico" />
           <Scene
             key="doorlist"
             component={DoorList}

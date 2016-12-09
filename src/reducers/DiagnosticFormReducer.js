@@ -6,6 +6,10 @@ const INITIAL_STATE = {
   diag1: {
     value: 'Seleccionar',
     isFilled: false
+  },
+  diag2: {
+    value: 'Seleccionar',
+    isFilled: false
   }
 };
 

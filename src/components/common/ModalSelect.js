@@ -30,17 +30,13 @@ class ModalSelect extends Component {
 
   renderIcon() {
     if (this.props.isFilled) {
-      return (
-        <Icon name='check' size={18} style={{ alignSelf: 'flex-end', color: 'green' }} />
-      );
+      return <Icon name='check' size={18} style={{ alignSelf: 'flex-end', color: 'green' }} />;
     }
-    return (
-      <Icon name='circle-thin' size={18} style={{ alignSelf: 'flex-end' }} />
-    );
+    return <Icon name='circle-thin' size={18} style={{ alignSelf: 'flex-end' }} />;
   }
 
   renderModalIcon(label) {
-    if (label == this.props.value) {
+    if (label === this.props.value) {
       return <Icon name='dot-circle-o' size={18} style={{ alignSelf: 'flex-end' }} />;
     }
     return <Icon name='circle-thin' size={18} style={{ alignSelf: 'flex-end' }} />;

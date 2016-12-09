@@ -24,6 +24,23 @@ class Diagnostic1 extends Component {
             this.props.selectModalOption({ prop, value, isFilled });
           }}
         />
+
+        <ModalSelect
+          name={'diag2'}
+          topic={'2. La puerta o portón llega a los extremos de forma precisa? (En corredizos, requiere una luz antes del tope de 2cm)'}
+          data={[
+            { label: 'Si, La puerta llega exacta' },
+            { label: 'No, puerta golpea al llegar (normal en algunos modelos)'},
+            { label: 'No, puerta le falta llegar' },
+            { label: 'No, puerta llega desviada' },
+            { label: 'No, otro problema en puerta' }
+          ]}
+          isFilled={this.props.diag2.isFilled}
+          value={this.props.diag2.value}
+          onChange={({ prop, value, isFilled }) => {
+            this.props.selectModalOption({ prop, value, isFilled });
+          }}
+        />
       </View>
     );
   }
@@ -41,7 +58,8 @@ const styles = {
 
 const mapStateToProps = state => {
   return {
-    diag1: state.diagnosticForm.diag1
+    diag1: state.diagnosticForm.diag1,
+    diag2: state.diagnosticForm.diag2
   };
 };
 
