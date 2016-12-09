@@ -29,16 +29,22 @@ class ModalSelect extends Component {
     this.setState({ modalVisible: visible });
   }
 
-  renderOptions() {
-    this.props.data.map((option) => {
+  renderOptionList() {
+    console.log(this.props.data); // an array as expected
+    const options = this.props.data.map((option, i) => {
       return (
-        <TouchableOpacity onPress={() => this.onSelect(option)}>
-          <View style={{ height: 50 }}>
+        <TouchableOpacity
+          key={i}
+          style={{ height: 50, width: 200, borderWidth: 1, borderColor: 'blue' }}
+          onPress={() => this.onSelect(option)}
+        >
+          <View>
             <Text>{option.label}</Text>
           </View>
         </TouchableOpacity>
       );
     });
+    return options;
   }
 
   renderChildren() {
@@ -58,8 +64,8 @@ class ModalSelect extends Component {
           visible={this.state.modalVisible}
         >
           <View style={{ marginTop: 22 }}>
-            <Text>THIS IS A TEST</Text>
-            {this.renderOptions()}
+            <Text>OptionList</Text>
+            {this.renderOptionList()}
           </View>
         </Modal>
 

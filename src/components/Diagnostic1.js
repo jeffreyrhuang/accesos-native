@@ -15,7 +15,7 @@ class Diagnostic1 extends Component {
             { label: 'Option 2', value: 'Option 2' }
           ]}
           name={'diag1'}
-          onChange={({ prop, value }) => selectModalOption({ prop, value })}
+          onChange={({ prop, value }) => this.props.selectModalOption({ prop, value })}
         >
           <TextInput
             style={{ height: 30, padding: 10, borderColor: '#ccc', borderWidth: 1 }}
