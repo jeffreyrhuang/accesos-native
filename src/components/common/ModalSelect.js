@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Modal, Text, TouchableOpacity, TouchableHighlight } from 'react-native';
+import { View, Modal, Text, TextInput, TouchableOpacity, TouchableHighlight } from 'react-native';
 
 class ModalSelect extends Component {
 
@@ -8,7 +8,6 @@ class ModalSelect extends Component {
 
     this.state = {
       modalVisible: false,
-      selected: 'please select'
     };
   }
 
@@ -29,7 +28,7 @@ class ModalSelect extends Component {
           style={styles.modalSelect}
           onPress={() => this.onSelect(option)}
         >
-          <View style={styles.textContainer}>
+          <View style={styles.labelContainer}>
             <Text>{option.label}</Text>
           </View>
         </TouchableOpacity>
@@ -38,33 +37,36 @@ class ModalSelect extends Component {
     return options;
   }
 
-  renderChildren() {
-    if (this.props.children) {
-      return this.props.children;
-    }
-
-    return <Text>{this.state.selected}</Text>; // Can be removed
-  }
-
   render() {
     return (
       <View style={{ marginTop: 22 }}>
+
         <Modal
           animationType={'slide'}
-          transparent={true}
+          transparent
           visible={this.state.modalVisible}
           onRequestClose={() => this.setModalVisible(false)}
         >
           <View style={{ alignItems: 'center' }}>
-            <View style={{ marginTop: 100, width: 300, backgroundColor: '#eee' }}>
-              <Text>OptionList</Text>
+            <View style={styles.modalContentContainer}>
+              <View style={styles.topicTextContainer}>
+                <Text style={styles.topicTextModal}>{this.props.topic}</Text>
+              </View>
               {this.renderOptionList()}
             </View>
           </View>
         </Modal>
 
+        <View style={styles.topicTextContainer}>
+          <Text style={styles.topicText}>{this.props.topic}</Text>
+        </View>
+
         <TouchableHighlight onPress={() => { this.setModalVisible(true) }}>
-          {this.renderChildren()}
+          <TextInput
+            style={{ height: 30, padding: 10, borderColor: '#ccc', borderWidth: 1 }}
+            editable={false}
+            value={this.props.value}
+          />
         </TouchableHighlight>
 
       </View>
@@ -80,11 +82,26 @@ const styles = {
     borderColor: 'blue',
     marginBottom: 5
   },
-  textContainer: {
+  labelContainer: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center'
-  }
+  },
+  modalContentContainer: {
+    marginTop: 100,
+    width: 300,
+    backgroundColor: '#eee',
+    padding: 10
+  },
+  topicText: {
+    fontSize: 16,
+  },
+  topicTextContainer: {
+    paddingBottom: 10
+  },
+  topicTextModal: {
+    fontWeight: 'bold'
+  },
 };
 
 export { ModalSelect };
