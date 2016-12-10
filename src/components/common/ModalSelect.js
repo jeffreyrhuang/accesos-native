@@ -102,7 +102,7 @@ class ModalSelect extends Component {
             <View style={{ flex: 1 }}>
               {this.renderModalIcon(option.label)}
             </View>
-            <View style={{ flex: 15, paddingLeft: 5 }}>
+            <View style={{ flex: 15, paddingLeft: 10 }}>
               <Text>{option.label}</Text>
             </View>
           </View>
