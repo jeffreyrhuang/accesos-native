@@ -21,7 +21,7 @@ class ModalSelect extends Component {
 
   onClear() {
     this.setModalVisible(false);
-    this.props.onChange({ prop: this.props.name, value: 'Seleccionar', isFilled: false });
+    this.props.onChange({ prop: this.props.name, value: '', isFilled: false });
   }
 
   setModalVisible(visible) {
@@ -35,24 +35,32 @@ class ModalSelect extends Component {
     return <Icon name='circle-thin' size={18} style={{ alignSelf: 'flex-end' }} />;
   }
 
+  renderModalIcon(label) {
+    if (label === this.props.value) {
+      return <Icon name='dot-circle-o' size={18} style={{ alignSelf: 'flex-end', color: 'green' }} />;
+    }
+    return <Icon name='circle-thin' size={18} style={{ alignSelf: 'flex-end' }} />;
+  }
+
   renderClearButton() {
-    if (this.props.value !== 'Seleccionar') {
+    if (this.props.value) {
       return (
-        <TouchableOpacity style={styles.clearButton} onPress={() => this.onClear()}>
+        <TouchableOpacity style={styles.modalButton} onPress={() => this.onClear()}>
           <Text>
             Clear
           </Text>
         </TouchableOpacity>
       );
     }
+    return (
+      <TouchableOpacity style={styles.modalButton} onPress={() => this.setModalVisible(false)}>
+        <Text>
+          Cancel
+        </Text>
+      </TouchableOpacity>
+    );
   }
 
-  renderModalIcon(label) {
-    if (label === this.props.value) {
-      return <Icon name='dot-circle-o' size={18} style={{ alignSelf: 'flex-end' }} />;
-    }
-    return <Icon name='circle-thin' size={18} style={{ alignSelf: 'flex-end' }} />;
-  }
 
   renderOptionList() {
     const options = this.props.data.map((option, i) => {
@@ -105,7 +113,7 @@ class ModalSelect extends Component {
           <Text style={styles.topicText}>{this.props.topic}</Text>
         </View>
 
-        <TouchableOpacity onPress={() => { this.setModalVisible(true); }}>
+        <TouchableOpacity onPress={() => this.setModalVisible(true)}>
           <View style={styles.selectionContainer}>
             <View style={{ flex: 4 }}>
               <Text>
@@ -171,7 +179,7 @@ const styles = {
   topicTextModal: {
     fontWeight: 'bold'
   },
-  clearButton: {
+  modalButton: {
     padding: 10,
     marginTop: 20,
     borderWidth: 1,

@@ -4,11 +4,11 @@ import {
 
 const INITIAL_STATE = {
   diag1: {
-    value: 'Seleccionar',
+    value: '',
     isFilled: false
   },
   diag2: {
-    value: 'Seleccionar',
+    value: '',
     isFilled: false
   }
 };
