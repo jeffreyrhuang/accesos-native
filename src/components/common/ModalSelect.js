@@ -28,16 +28,9 @@ class ModalSelect extends Component {
     this.setState({ modalVisible: visible });
   }
 
-  renderIcon() {
-    if (this.props.isFilled) {
-      return <Icon name='check' size={18} style={{ alignSelf: 'flex-end', color: 'green' }} />;
-    }
-    return <Icon name='circle-thin' size={18} style={{ alignSelf: 'flex-end' }} />;
-  }
-
   renderModalIcon(label) {
     if (label === this.props.value) {
-      return <Icon name='dot-circle-o' size={18} style={{ alignSelf: 'flex-end', color: 'green' }} />;
+      return <Icon name='check' size={18} style={{ alignSelf: 'flex-end', color: 'green' }} />;
     }
     return <Icon name='circle-thin' size={18} style={{ alignSelf: 'flex-end' }} />;
   }
@@ -61,6 +54,41 @@ class ModalSelect extends Component {
     );
   }
 
+  renderTopic() {
+    if (this.props.isFilled) {
+      return (
+        <View>
+          <View>
+            <Text style={styles.topicText}>{this.props.topic}</Text>
+          </View>
+          <TouchableOpacity onPress={() => this.setModalVisible(true)}>
+            <View style={styles.selectionContainer}>
+              <View style={{ flex: 8 }}>
+                <Text>
+                  {this.props.value}
+                </Text>
+              </View>
+              <View style={{ flex: 1 }}>
+                <Icon name='check' size={18} style={{ alignSelf: 'flex-end', color: 'green' }} />
+              </View>
+            </View>
+          </TouchableOpacity>
+        </View>
+      );
+    }
+    return (
+      <TouchableOpacity onPress={() => this.setModalVisible(true)}>
+        <View style={styles.selectionContainer}>
+          <View style={{ flex: 10 }}>
+            <Text style={styles.topicText}>{this.props.topic}</Text>
+          </View>
+          <View style={{ flex: 1 }}>
+            <Icon name='circle-thin' size={18} style={{ alignSelf: 'flex-end' }} />
+          </View>
+        </View>
+      </TouchableOpacity>
+    );
+  }
 
   renderOptionList() {
     const options = this.props.data.map((option, i) => {
@@ -108,24 +136,7 @@ class ModalSelect extends Component {
             </View>
           </View>
         </Modal>
-
-        <View style={styles.topicTextContainer}>
-          <Text style={styles.topicText}>{this.props.topic}</Text>
-        </View>
-
-        <TouchableOpacity onPress={() => this.setModalVisible(true)}>
-          <View style={styles.selectionContainer}>
-            <View style={{ flex: 4 }}>
-              <Text>
-                {this.props.value}
-              </Text>
-            </View>
-            <View style={{ flex: 1 }}>
-              {this.renderIcon()}
-            </View>
-          </View>
-        </TouchableOpacity>
-
+        {this.renderTopic()}
       </View>
     );
   }
@@ -165,16 +176,15 @@ const styles = {
   selectionContainer: {
     borderColor: '#ccc',
     borderBottomWidth: 1,
-    padding: 5,
-    paddingTop: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 15,
+    paddingBottom: 10,
     alignItems: 'center',
     flexDirection: 'row',
   },
   topicText: {
     fontSize: 16,
-  },
-  topicTextContainer: {
-    paddingBottom: 10
   },
   topicTextModal: {
     fontWeight: 'bold'
