@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 import { selectModalOption } from '../actions';
 import { ModalSelect, FormFooter } from './common';
 
@@ -45,7 +46,7 @@ class Diagnostic1 extends Component {
             }}
           />
         </ScrollView>
-        <FormFooter />
+        <FormFooter onPressNext={Actions.diagnostic2} />
       </View>
     );
   }

@@ -1,20 +1,19 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
-const FormFooter = () => {
+const FormFooter = (props) => {
   return (
     <View style={styles.footerContainer}>
-
-      <TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={props.onPressPrev}>
         <View>
-          <Text>
+          <Text style={styles.text}>
             Prev
           </Text>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.rightButton}>
+      <TouchableOpacity style={[styles.button]} onPress={props.onPressNext}>
         <View>
-          <Text>
+          <Text style={styles.text}>
             Next
           </Text>
         </View>
@@ -25,15 +24,29 @@ const FormFooter = () => {
 
 const styles = {
   footerContainer: {
-    height: 35,
+    height: 40,
     backgroundColor: '#eee',
     position: 'absolute',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
     bottom: 0,
     left: 0,
     right: 0,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: -2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
+    elevation: 1
   },
-  rightButton: {
-    alignSelf: 'flex-end'
+  button: {
+    height: 40,
+    width: 65,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  text: {
+    color: '#163D7D',
+    fontWeight: 'bold'
   }
 };
 
