@@ -7,6 +7,7 @@ import ChooseOrientation from './components/ChooseOrientation';
 import SelectTraits from './components/SelectTraits';
 import FillDimensions from './components/FillDimensions';
 import Diagnostic1 from './components/Diagnostic1';
+import Diagnostic2 from './components/diagnostics/Diagnostic2'
 
 const RouterComponent = () => {
   return (
@@ -25,6 +26,7 @@ const RouterComponent = () => {
         <Scene key="main" initial>
           <Scene key="home" component={HomeMenu} title="Home Menu" />
           <Scene key="diag1" component={Diagnostic1} title="Diagnóstico" />
+          <Scene key="diag2" component={Diagnostic2} title="Diagnóstico" />
           <Scene
             key="doorlist"
             component={DoorList}

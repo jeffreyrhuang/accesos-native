@@ -46,7 +46,7 @@ class Diagnostic1 extends Component {
             }}
           />
         </ScrollView>
-        <FormFooter onPressNext={Actions.diagnostic2} />
+        <FormFooter onPressNext={Actions.diag2} />
       </View>
     );
   }
