@@ -6,8 +6,8 @@ import DoorList from './components/DoorList';
 import ChooseOrientation from './components/ChooseOrientation';
 import SelectTraits from './components/SelectTraits';
 import FillDimensions from './components/FillDimensions';
-import Diagnostic1 from './components/Diagnostic1';
-import Diagnostic2 from './components/diagnostics/Diagnostic2'
+import Diagnostic1 from './components/diagnostics/Diagnostic1';
+import Diagnostic2 from './components/diagnostics/Diagnostic2';
 
 const RouterComponent = () => {
   return (

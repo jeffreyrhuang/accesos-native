@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Dimensions } from 'react-native';
+import { View, Text, TouchableOpacity, Dimensions, StyleSheet } from 'react-native';
 
 const { width } = Dimensions.get('window');
 const buttonWidth = (width / 2) - 30;
@@ -18,7 +18,7 @@ const MenuTile = (props) => {
   );
 };
 
-const styles = {
+const styles = StyleSheet.create({
   button: {
     width: buttonWidth,
     height: buttonHeight,
@@ -42,6 +42,6 @@ const styles = {
     fontWeight: 'bold',
     paddingTop: 7
   }
-};
+});
 
 export { MenuTile };
