@@ -35,6 +35,18 @@ class ModalSelect extends Component {
     return <Icon name='circle-thin' size={18} style={{ alignSelf: 'flex-end' }} />;
   }
 
+  renderClearButton() {
+    if (this.props.value !== 'Seleccionar') {
+      return (
+        <TouchableOpacity style={styles.clearButton} onPress={() => this.onClear()}>
+          <Text>
+            Clear
+          </Text>
+        </TouchableOpacity>
+      );
+    }
+  }
+
   renderModalIcon(label) {
     if (label === this.props.value) {
       return <Icon name='dot-circle-o' size={18} style={{ alignSelf: 'flex-end' }} />;
@@ -83,11 +95,7 @@ class ModalSelect extends Component {
                 {this.renderOptionList()}
               </View>
               <View>
-                <TouchableOpacity style={styles.clearButton} onPress={() => this.onClear()}>
-                  <Text>
-                    Clear
-                  </Text>
-                </TouchableOpacity>
+                {this.renderClearButton()}
               </View>
             </View>
           </View>
