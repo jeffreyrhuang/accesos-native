@@ -133,13 +133,18 @@ const styles = {
     padding: 10,
     marginTop: 30,
     width: 330,
-    height: 600
+    height: 600,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.5,
+    shadowRadius: 2,
+    elevation: 1,
   },
   overlay: {
     alignItems: 'center',
     height,
     width,
-    backgroundColor: '#f2f2f2'
+    backgroundColor: '#e6e6e6'
   },
   selectionContainer: {
     borderColor: '#ccc',
