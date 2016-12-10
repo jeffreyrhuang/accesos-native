@@ -14,9 +14,9 @@ class ModalSelect extends Component {
     };
   }
 
-  onSelect(option) {
+  onSelect(item) {
     this.setModalVisible(false);
-    this.props.onChange({ prop: this.props.name, value: option.label, isFilled: true });
+    this.props.onChange({ prop: this.props.name, value: item.option, isFilled: true });
   }
 
   onClear() {
@@ -28,8 +28,8 @@ class ModalSelect extends Component {
     this.setState({ modalVisible: visible });
   }
 
-  renderModalIcon(label) {
-    if (label === this.props.value) {
+  renderModalIcon(option) {
+    if (option === this.props.value) {
       return <Icon name='check' size={18} style={{ alignSelf: 'flex-end', color: 'green' }} />;
     }
     return <Icon name='circle-thin' size={18} style={{ alignSelf: 'flex-end' }} />;
@@ -91,19 +91,19 @@ class ModalSelect extends Component {
   }
 
   renderOptionList() {
-    const options = this.props.data.map((option, i) => {
+    const options = this.props.data.map((item, i) => {
       return (
         <TouchableOpacity
           key={i}
           style={styles.modalSelect}
-          onPress={() => this.onSelect(option)}
+          onPress={() => this.onSelect(item)}
         >
           <View style={styles.optionContainer}>
             <View style={{ flex: 1 }}>
-              {this.renderModalIcon(option.label)}
+              {this.renderModalIcon(item.option)}
             </View>
             <View style={{ flex: 15, paddingLeft: 10 }}>
-              <Text>{option.label}</Text>
+              <Text>{item.option}</Text>
             </View>
           </View>
         </TouchableOpacity>

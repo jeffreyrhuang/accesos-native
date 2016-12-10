@@ -8,15 +8,17 @@ class Diagnostic1 extends Component {
   render() {
     return (
       <View style={styles.sceneContainer}>
-        <Text style={styles.sectionHeaderText}>Estado del Portón</Text>
+        <View style={styles.sectionHeaderContainer}>
+          <Text style={styles.sectionHeaderText}>Estado del Portón</Text>
+        </View>
         <ModalSelect
           name={'diag1'}
           topic={'1. La puerta o portón se mueve libre y con facilidad manualmente?*'}
           data={[
-            { label: 'Si, puerta/portón se mueve con facilidad' },
-            { label: 'No, daños en montaje o rodamiento' },
-            { label: 'No, falta limpieza' },
-            { label: 'No, portón muy grande duro de mover' }
+            { option: 'Si, puerta/portón se mueve con facilidad' },
+            { option: 'No, daños en montaje o rodamiento' },
+            { option: 'No, falta limpieza' },
+            { option: 'No, portón muy grande duro de mover' }
           ]}
           isFilled={this.props.diag1.isFilled}
           value={this.props.diag1.value}
@@ -29,11 +31,11 @@ class Diagnostic1 extends Component {
           name={'diag2'}
           topic={'2. La puerta o portón llega a los extremos de forma precisa? (En corredizos, requiere una luz antes del tope de 2cm)'}
           data={[
-            { label: 'Si, La puerta llega exacta' },
-            { label: 'No, puerta golpea al llegar (normal en algunos modelos)'},
-            { label: 'No, puerta le falta llegar' },
-            { label: 'No, puerta llega desviada' },
-            { label: 'No, otro problema en puerta' }
+            { option: 'Si, La puerta llega exacta' },
+            { option: 'No, puerta golpea al llegar (normal en algunos modelos)'},
+            { option: 'No, puerta le falta llegar' },
+            { option: 'No, puerta llega desviada' },
+            { option: 'No, otro problema en puerta' }
           ]}
           isFilled={this.props.diag2.isFilled}
           value={this.props.diag2.value}
@@ -48,8 +50,13 @@ class Diagnostic1 extends Component {
 
 const styles = {
   sectionHeaderText: {
-    fontSize: 20,
-    paddingLeft: 5
+    fontSize: 18,
+    paddingLeft: 5,
+    fontWeight: 'bold'
+  },
+  sectionHeaderContainer: {
+    borderBottomWidth: 1,
+    borderColor: '#000'
   },
   sceneContainer: {
     padding: 15
