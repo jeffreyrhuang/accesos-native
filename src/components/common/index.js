@@ -6,3 +6,4 @@ export * from './Input';
 export * from './Prompt';
 export * from './Spinner';
 export * from './ModalSelect';
+export * from './MenuTile';
