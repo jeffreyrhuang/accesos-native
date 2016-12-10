@@ -7,3 +7,4 @@ export * from './Prompt';
 export * from './Spinner';
 export * from './ModalSelect';
 export * from './MenuTile';
+export * from './FormFooter';
