@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyleSheet } from 'react-native'
 import { Scene, Router, Actions } from 'react-native-router-flux';
 import LoginForm from './components/LoginForm';
 import HomeMenu from './components/HomeMenu';
@@ -12,10 +13,10 @@ import Diagnostic2 from './components/diagnostics/Diagnostic2';
 const RouterComponent = () => {
   return (
     <Router
-      sceneStyle={{ paddingTop: 65 }}
+      sceneStyle={styles.sceneStyle}
       navigationBarStyle={styles.navigationBar}
-      leftButtonIconStyle={{ tintColor: 'white' }}
-      titleStyle={{ color: '#FFF' }}
+      leftButtonIconStyle={styles.leftButtonIcon}
+      titleStyle={styles.titleStyle}
     >
       <Scene key="root">
 
@@ -23,7 +24,7 @@ const RouterComponent = () => {
           <Scene key="login" component={LoginForm} title="Iniciar Sesión" />
         </Scene>
 
-        <Scene key="main" initial>
+        <Scene key="main">
           <Scene key="home" component={HomeMenu} title="Home Menu" />
           <Scene key="diag1" component={Diagnostic1} title="Diagnóstico" />
           <Scene key="diag2" component={Diagnostic2} title="Diagnóstico" />
@@ -44,10 +45,19 @@ const RouterComponent = () => {
   );
 };
 
-const styles = {
+const styles = StyleSheet.create({
   navigationBar: {
     backgroundColor: '#163D7D'
+  },
+  leftButtonIcon: {
+    tintColor: 'white'
+  },
+  titleStyle: {
+    color: '#FFF'
+  },
+  sceneStyle: {
+    paddingTop: 65
   }
-};
+});
 
 export default RouterComponent;

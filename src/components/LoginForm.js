@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, Image, Button } from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
-import { Card, CardSection, Input, Spinner } from './common';
+import { Button, Card, CardSection, Input, Spinner } from './common';
 
 class LoginForm extends Component {
   onEmailChange(text) {
@@ -71,7 +71,7 @@ class LoginForm extends Component {
   }
 }
 
-const styles = {
+const styles = StyleSheet.create({
   errorText: {
     fontSize: 20,
     alignSelf: 'center',
@@ -83,7 +83,7 @@ const styles = {
   logoContainer: {
     alignItems: 'center'
   }
-};
+});
 
 const mapStateToProps = ({ auth }) => {
   const { email, password, error, loading } = auth;
