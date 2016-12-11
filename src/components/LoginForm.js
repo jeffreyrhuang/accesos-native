@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
-import { Button, Card, CardSection, Input, Spinner } from './common';
+import { Container, Button, Card, CardSection, Input, Spinner } from './common';
 
 class LoginForm extends Component {
   onEmailChange(text) {
@@ -33,7 +33,7 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <View>
+      <Container>
         <View style={styles.logoContainer}>
           <Image
             style={styles.logo}
@@ -66,7 +66,7 @@ class LoginForm extends Component {
             {this.renderButton()}
           </CardSection>
         </Card>
-      </View>
+      </Container>
     );
   }
 }

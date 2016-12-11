@@ -14,9 +14,10 @@ const RouterComponent = () => {
   return (
     <Router
       sceneStyle={styles.sceneStyle}
+      titleStyle={styles.titleStyle}
       navigationBarStyle={styles.navigationBar}
       leftButtonIconStyle={styles.leftButtonIcon}
-      titleStyle={styles.titleStyle}
+      rightButtonTextStyle={styles.rightButtonText}
     >
       <Scene key="root">
 
@@ -50,10 +51,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#163D7D'
   },
   leftButtonIcon: {
-    tintColor: 'white'
+    tintColor: '#fff'
+  },
+  rightButtonText: {
+    color: '#fff'
   },
   titleStyle: {
-    color: '#FFF'
+    color: '#fff'
   },
   sceneStyle: {
     paddingTop: 65

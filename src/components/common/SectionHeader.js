@@ -13,7 +13,7 @@ const SectionHeader = (props) => {
 
 const styles = StyleSheet.create({
   headerContainer: {
-    borderBottomWidth: 1,
+    borderBottomWidth: 0.5,
     borderColor: '#000'
   },
   headerText: {

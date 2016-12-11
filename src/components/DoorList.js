@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ListView } from 'react-native';
 import { doorsFetch } from '../actions';
+import { Container } from './common';
 import ListItem from './ListItem';
 
 class DoorList extends Component {
@@ -31,11 +32,13 @@ class DoorList extends Component {
 
   render() {
     return (
-      <ListView
-        enableEmptySections
-        dataSource={this.dataSource}
-        renderRow={this.renderRow}
-      />
+      <Container>
+        <ListView
+          enableEmptySections
+          dataSource={this.dataSource}
+          renderRow={this.renderRow}
+        />
+      </Container>
     );
   }
 }
