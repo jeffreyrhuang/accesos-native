@@ -1,4 +1,4 @@
-package com.puerta;
+package com.accesosnative;
 
 import android.app.Application;
 import android.util.Log;
