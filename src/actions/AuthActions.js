@@ -45,7 +45,7 @@ export const loginUser = ({ email, password }) => {
       if (error.response) {
         loginUserFail(dispatch, error);
       } else {
-        networkFailure(dispatch)
+        networkFailure(dispatch);
       }
     });
   };
