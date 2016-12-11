@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ScrollView, View, Dimensions } from 'react-native';
-import { Prompt } from './common';
+import { Prompt } from '../common';
 import Diagram from './Diagram';
 
 class ChooseOrientation extends Component {
@@ -12,12 +12,12 @@ class ChooseOrientation extends Component {
           <Diagram
             style={styles.diagramStyle}
             text="Izquierda"
-            source={require('../img/izq.png')}
+            source={require('../../img/izq.png')}
           />
           <Diagram
             style={styles.diagramStyle}
             text="Derecha"
-            source={require('../img/der.png')}
+            source={require('../../img/der.png')}
           />
         </View>
       </ScrollView>

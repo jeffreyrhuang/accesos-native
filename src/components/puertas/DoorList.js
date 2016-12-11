@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ListView } from 'react-native';
-import { doorsFetch } from '../actions';
-import { Container } from './common';
+import { doorsFetch } from '../../actions';
+import { Container } from '../common';
 import ListItem from './ListItem';
 
 class DoorList extends Component {

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { ScrollView, Picker, Text, Switch } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
-import { Button, Prompt, CardSection } from './common';
-import { doorUpdate } from '../actions';
+import { Button, Prompt, CardSection } from '../common';
+import { doorUpdate } from '../../actions';
 
 const Item = Picker.Item;
 

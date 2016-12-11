@@ -1,12 +1,12 @@
 import React from 'react';
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 import { Scene, Router, Actions } from 'react-native-router-flux';
 import LoginForm from './components/LoginForm';
 import HomeMenu from './components/HomeMenu';
-import DoorList from './components/DoorList';
-import ChooseOrientation from './components/ChooseOrientation';
-import SelectTraits from './components/SelectTraits';
-import FillDimensions from './components/FillDimensions';
+import DoorList from './components/puertas/DoorList';
+import ChooseOrientation from './components/puertas/ChooseOrientation';
+import SelectTraits from './components/puertas/SelectTraits';
+import FillDimensions from './components/puertas/FillDimensions';
 import Diagnostic1 from './components/diagnostics/Diagnostic1';
 import Diagnostic2 from './components/diagnostics/Diagnostic2';
 

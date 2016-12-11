@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Image, Text, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
-import * as actions from '../actions';
+import * as actions from '../../actions';
 
 class Diagram extends Component {
   onClick() {
