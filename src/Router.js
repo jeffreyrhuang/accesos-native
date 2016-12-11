@@ -22,7 +22,7 @@ const RouterComponent = () => {
       <Scene key="root">
 
         <Scene key="auth">
-          <Scene key="login" component={LoginForm} title="Iniciar Sesión" />
+          <Scene key="login" component={LoginForm} />
         </Scene>
 
         <Scene key="main">

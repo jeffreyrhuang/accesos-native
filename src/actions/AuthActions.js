@@ -6,7 +6,8 @@ import {
   PASSWORD_CHANGED,
   LOGIN_USER,
   LOGIN_USER_SUCCESS,
-  LOGIN_USER_FAIL
+  LOGIN_USER_FAIL,
+  NETWORK_FAILURE
 } from './types';
 
 export const emailChanged = (text) => {
@@ -36,12 +37,16 @@ export const loginUser = ({ email, password }) => {
       },
       data: {
         session: { email, password }
-      }
+      },
+      timeout: 5000 // doesn't work?
     })
     .then(user => loginUserSuccess(dispatch, user))
     .catch(error => {
-      console.log(error.response.data);
-      loginUserFail(dispatch, error);
+      if (error.response) {
+        loginUserFail(dispatch, error);
+      } else {
+        networkFailure(dispatch)
+      }
     });
   };
 };
@@ -59,4 +64,8 @@ const loginUserFail = (dispatch, error) => {
     type: LOGIN_USER_FAIL,
     payload: error.response.data.error
   });
+};
+
+const networkFailure = (dispatch) => {
+  dispatch({ type: NETWORK_FAILURE });
 };

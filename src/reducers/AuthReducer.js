@@ -3,7 +3,8 @@ import {
   PASSWORD_CHANGED,
   LOGIN_USER,
   LOGIN_USER_SUCCESS,
-  LOGIN_USER_FAIL
+  LOGIN_USER_FAIL,
+  NETWORK_FAILURE
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -26,6 +27,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, ...INITIAL_STATE, current_user: action.payload };
     case LOGIN_USER_FAIL:
       return { ...state, loading: false, password: '', error: action.payload };
+    case NETWORK_FAILURE:
+      return { ...state, loading: false, password: '', error: 'No hay conexión de Internet' };
     default:
       return state;
   }
