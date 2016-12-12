@@ -26,9 +26,8 @@ export const validateSection = ({ page1 }) => {
 };
 
 const validateErrors = (page1) => {
-  const target = _.get(page1, ['page1', 'diag1', 'isFilled']);
   const errors = [];
-  if (!target) {
+  if (!_.get(page1, ['page1', 'diag1', 'isFilled'])) {
     errors.push({ prop: 'Pregunta1', message: 'no puede estar en blanco' });
   }
   if (!_.get(page1, ['page1', 'diag2', 'isFilled'])) {

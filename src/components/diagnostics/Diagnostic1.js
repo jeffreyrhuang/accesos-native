@@ -34,8 +34,8 @@ class Diagnostic1 extends Component {
               { option: 'No, falta limpieza' },
               { option: 'No, portón muy grande duro de mover' }
             ]}
-            isFilled={this.props.diag1.isFilled}
-            value={this.props.diag1.value}
+            isFilled={this.props.page1.diag1.isFilled}
+            value={this.props.page1.diag1.value}
             onChange={({ prop, value, isFilled }) => {
               this.props.selectModalOption({ prop, value, isFilled });
             }}
@@ -51,8 +51,8 @@ class Diagnostic1 extends Component {
               { option: 'No, puerta llega desviada' },
               { option: 'No, otro problema en puerta' }
             ]}
-            isFilled={this.props.diag2.isFilled}
-            value={this.props.diag2.value}
+            isFilled={this.props.page1.diag2.isFilled}
+            value={this.props.page1.diag2.value}
             onChange={({ prop, value, isFilled }) => {
               this.props.selectModalOption({ prop, value, isFilled });
             }}
@@ -67,9 +67,7 @@ class Diagnostic1 extends Component {
 const mapStateToProps = state => {
   return {
     page1: state.diagnosticForm,
-    errors: state.diagnosticForm.errors,
-    diag1: state.diagnosticForm.diag1,
-    diag2: state.diagnosticForm.diag2
+    errors: state.diagnosticForm.errors
   };
 };
 
