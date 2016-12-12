@@ -1,6 +1,7 @@
 import {
   UPDATE_DIAGNOSTIC,
-  SHOW_VALIDATION_ERRORS
+  SHOW_VALIDATION_ERRORS,
+  VALIDATION_SUCCESS
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -26,6 +27,8 @@ export default (state = INITIAL_STATE, action) => {
       };
     case SHOW_VALIDATION_ERRORS:
       return { ...state, errors: action.payload };
+    case VALIDATION_SUCCESS:
+      return { ...state, errors: [] };
     default:
       return state;
   }
