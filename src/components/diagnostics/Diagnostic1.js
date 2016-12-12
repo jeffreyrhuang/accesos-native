@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { selectModalOption, validateSection } from '../../actions';
-import { Container, SectionHeader, ModalSelect, FormFooter } from '../common';
+import { Container, SectionHeader, ModalSelect, FormFooter, ValidationErrors } from '../common';
 
 class Diagnostic1 extends Component {
 
   renderErrors() {
     const errorList = this.props.errors.map((error, i) => {
       return (
-        <View key={i} style={{ padding: 10 }}>
-          <Text style={{ color: 'red'} }>{error.prop} {error.message}</Text>
-        </View>
+        <ValidationErrors key={i}>
+          {error.prop} {error.message}
+        </ValidationErrors>
       );
     });
     return errorList;

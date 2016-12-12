@@ -14,7 +14,8 @@ const SectionHeader = (props) => {
 const styles = StyleSheet.create({
   headerContainer: {
     borderBottomWidth: 0.5,
-    borderColor: '#000'
+    borderColor: '#000',
+    marginBottom: 8
   },
   headerText: {
     fontSize: 18,

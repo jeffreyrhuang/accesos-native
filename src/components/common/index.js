@@ -9,3 +9,4 @@ export * from './Spinner';
 export * from './ModalSelect';
 export * from './MenuTile';
 export * from './SectionHeader';
+export * from './ValidationErrors';

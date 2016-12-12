@@ -29,7 +29,10 @@ const validateErrors = (page1) => {
   const target = _.get(page1, ['page1', 'diag1', 'isFilled']);
   const errors = [];
   if (!target) {
-    errors.push({ prop: 'diag1', message: 'cannot be blank' });
+    errors.push({ prop: 'Pregunta1', message: 'no puede estar en blanco' });
+  }
+  if (!_.get(page1, ['page1', 'diag2', 'isFilled'])) {
+    errors.push({ prop: 'Pregunta2', message: 'no puede estar en blanco' });
   }
   return errors;
 };
