@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 import { connect } from 'react-redux';
-import { Actions } from 'react-native-router-flux';
-import { selectModalOption } from '../../actions';
+import { selectModalOption, validateSection } from '../../actions';
 import { Container, SectionHeader, ModalSelect, FormFooter } from '../common';
 
 class Diagnostic1 extends Component {
   render() {
+    const { page1 } = this.props;
+
     return (
       <Container>
         <ScrollView>
@@ -29,7 +30,7 @@ class Diagnostic1 extends Component {
 
           <ModalSelect
             name={'diag2'}
-            topic={'2. La puerta o portón llega a los extremos de forma precisa? (En corredizos, requiere una luz antes del tope de 2cm)'}
+            topic={'2. La puerta o portón llega a los extremos de forma precisa?* (En corredizos, requiere una luz antes del tope de 2cm)'}
             data={[
               { option: 'Si, La puerta llega exacta' },
               { option: 'No, puerta golpea al llegar (normal en algunos modelos)' },
@@ -44,7 +45,7 @@ class Diagnostic1 extends Component {
             }}
           />
         </ScrollView>
-        <FormFooter onPressNext={Actions.diag2} />
+        <FormFooter onPressNext={() => { this.props.validateSection({ page1 }) }} />
       </Container>
     );
   }
@@ -52,9 +53,10 @@ class Diagnostic1 extends Component {
 
 const mapStateToProps = state => {
   return {
+    page1: state.diagnosticForm,
     diag1: state.diagnosticForm.diag1,
     diag2: state.diagnosticForm.diag2
   };
 };
 
-export default connect(mapStateToProps, { selectModalOption })(Diagnostic1);
+export default connect(mapStateToProps, { selectModalOption, validateSection })(Diagnostic1);

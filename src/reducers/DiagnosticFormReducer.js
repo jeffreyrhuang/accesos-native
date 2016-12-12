@@ -5,11 +5,13 @@ import {
 const INITIAL_STATE = {
   diag1: {
     value: '',
-    isFilled: false
+    isFilled: false,
+    isValid: false,
   },
   diag2: {
     value: '',
-    isFilled: false
+    isFilled: false,
+    isValid: false
   }
 };
 
