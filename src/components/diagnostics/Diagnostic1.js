@@ -1,10 +1,22 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { selectModalOption, validateSection } from '../../actions';
 import { Container, SectionHeader, ModalSelect, FormFooter } from '../common';
 
 class Diagnostic1 extends Component {
+
+  renderErrors() {
+    const errorList = this.props.errors.map((error, i) => {
+      return (
+        <View key={i} style={{ padding: 10 }}>
+          <Text style={{ color: 'red'} }>{error.prop} {error.message}</Text>
+        </View>
+      );
+    });
+    return errorList;
+  }
+
   render() {
     const { page1 } = this.props;
 
@@ -12,6 +24,7 @@ class Diagnostic1 extends Component {
       <Container>
         <ScrollView>
           <SectionHeader>Estado del Portón</SectionHeader>
+          {this.renderErrors()}
           <ModalSelect
             name={'diag1'}
             topic={'1. La puerta o portón se mueve libre y con facilidad manualmente?*'}
@@ -54,6 +67,7 @@ class Diagnostic1 extends Component {
 const mapStateToProps = state => {
   return {
     page1: state.diagnosticForm,
+    errors: state.diagnosticForm.errors,
     diag1: state.diagnosticForm.diag1,
     diag2: state.diagnosticForm.diag2
   };

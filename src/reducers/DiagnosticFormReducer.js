@@ -1,8 +1,10 @@
 import {
-  UPDATE_DIAGNOSTIC
+  UPDATE_DIAGNOSTIC,
+  SHOW_VALIDATION_ERRORS
 } from '../actions/types';
 
 const INITIAL_STATE = {
+  errors: [],
   diag1: {
     value: '',
     isFilled: false,
@@ -22,6 +24,8 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state, [action.payload.prop]: { ...state.prop, value: action.payload.value, isFilled: action.payload.isFilled }
       };
+    case SHOW_VALIDATION_ERRORS:
+      return { ...state, errors: action.payload };
     default:
       return state;
   }
