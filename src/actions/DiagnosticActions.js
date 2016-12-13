@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import { Actions } from 'react-native-router-flux';
 import {
   UPDATE_DIAGNOSTIC,
@@ -13,9 +12,9 @@ export const selectModalOption = ({ prop, value, isFilled }) => {
   };
 };
 
-export const validateSection = ({ page1 }) => {
+export const validateSection = (FIELDS) => {
   return dispatch => {
-    const errors = validateErrors({ page1 });
+    const errors = validateFields(FIELDS);
     if (errors.length > 0) {
       dispatch({ type: SHOW_VALIDATION_ERRORS, payload: errors });
     } else {
@@ -25,14 +24,13 @@ export const validateSection = ({ page1 }) => {
   };
 };
 
-const validateErrors = (page1) => {
+const validateFields = (FIELDS) => {
   const errors = [];
-  if (!_.get(page1, ['page1', 'diag1', 'isFilled'])) {
+  if (!FIELDS.diag1.value) {
     errors.push({ prop: 'Pregunta1', message: 'no puede estar en blanco' });
   }
-  if (!_.get(page1, ['page1', 'diag2', 'isFilled'])) {
+  if (!FIELDS.diag2.value) {
     errors.push({ prop: 'Pregunta2', message: 'no puede estar en blanco' });
   }
   return errors;
 };
-

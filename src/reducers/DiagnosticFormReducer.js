@@ -8,13 +8,11 @@ const INITIAL_STATE = {
   errors: [],
   diag1: {
     value: '',
-    isFilled: false,
-    isValid: false,
+    isFilled: false
   },
   diag2: {
     value: '',
-    isFilled: false,
-    isValid: false
+    isFilled: false
   }
 };
 
