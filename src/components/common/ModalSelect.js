@@ -40,7 +40,7 @@ class ModalSelect extends Component {
       return (
         <TouchableOpacity style={styles.modalButton} onPress={() => this.onClear()}>
           <Text>
-            Clear
+            Despejar
           </Text>
         </TouchableOpacity>
       );
@@ -48,7 +48,7 @@ class ModalSelect extends Component {
     return (
       <TouchableOpacity style={styles.modalButton} onPress={() => this.setModalVisible(false)}>
         <Text>
-          Cancel
+          Cancelar
         </Text>
       </TouchableOpacity>
     );
@@ -117,7 +117,7 @@ class ModalSelect extends Component {
       <View style={{ marginTop: 22 }}>
 
         <Modal
-          animationType={'slide'}
+          animationType={'fade'}
           transparent
           visible={this.state.modalVisible}
           onRequestClose={() => this.setModalVisible(false)}

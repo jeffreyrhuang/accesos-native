@@ -7,14 +7,14 @@ const FormFooter = (props) => {
       <TouchableOpacity style={styles.button} onPress={props.onPressPrev}>
         <View>
           <Text style={styles.text}>
-            Prev
+            Atras
           </Text>
         </View>
       </TouchableOpacity>
       <TouchableOpacity style={[styles.button]} onPress={props.onPressNext}>
         <View>
           <Text style={styles.text}>
-            Next
+            Siguiente
           </Text>
         </View>
       </TouchableOpacity>
@@ -40,7 +40,7 @@ const styles = {
   },
   button: {
     height: 40,
-    width: 65,
+    width: 67,
     justifyContent: 'center',
     alignItems: 'center'
   },
