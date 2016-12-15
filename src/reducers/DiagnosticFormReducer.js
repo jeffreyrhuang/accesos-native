@@ -1,5 +1,6 @@
 import {
   UPDATE_DIAGNOSTIC,
+  UPDATE_INPUT,
   SHOW_VALIDATION_ERRORS,
   VALIDATION_SUCCESS
 } from '../actions/types';
@@ -27,6 +28,9 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state, [action.payload.prop]: { ...state.prop, value: action.payload.value, isFilled: action.payload.isFilled }
       };
+    case UPDATE_INPUT:
+      let prop3 = action.payload.prop;
+      return { ...state, [action.payload.prop]: { ...state.prop3, value: action.payload.value } };
     case SHOW_VALIDATION_ERRORS:
       return { ...state, errors: action.payload };
     case VALIDATION_SUCCESS:

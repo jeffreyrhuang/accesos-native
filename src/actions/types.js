@@ -10,5 +10,6 @@ export const DOOR_CREATE = 'door_create';
 export const FETCH_DOORS_SUCCESS = 'fetch_doors_success';
 
 export const UPDATE_DIAGNOSTIC = 'update_diagnostic';
+export const UPDATE_INPUT = 'update_input';
 export const SHOW_VALIDATION_ERRORS = 'show_validation_errors';
 export const VALIDATION_SUCCESS = 'validation_success';

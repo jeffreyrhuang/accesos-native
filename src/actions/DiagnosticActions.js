@@ -1,6 +1,7 @@
 import { Actions } from 'react-native-router-flux';
 import {
   UPDATE_DIAGNOSTIC,
+  UPDATE_INPUT,
   SHOW_VALIDATION_ERRORS,
   VALIDATION_SUCCESS
 } from './types';
@@ -9,6 +10,13 @@ export const selectModalOption = ({ prop, value, isFilled }) => {
   return {
     type: UPDATE_DIAGNOSTIC,
     payload: { prop, value, isFilled }
+  };
+};
+
+export const updateInput = ({ prop, value }) => {
+  return {
+    type: UPDATE_INPUT,
+    payload: { prop, value }
   };
 };
 

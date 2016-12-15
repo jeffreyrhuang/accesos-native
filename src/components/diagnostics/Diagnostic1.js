@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
 import { connect } from 'react-redux';
-import { selectModalOption, validateSection } from '../../actions';
+import { selectModalOption, updateInput, validateSection } from '../../actions';
 import {
   Container,
   SectionHeader,
@@ -67,8 +67,9 @@ class Diagnostic1 extends Component {
           <MultiText
             name={'diag3'}
             label={'Comentarios'}
-            isFilled={this.props.diag3.isFilled}
-            onChangeText={({ prop, value, isFilled }) => this.props.selectModalOption({ prop, value, isFilled })}
+            onChangeText={(text) => {
+              this.props.updateInput({ prop: 'diag3', value: text });
+            }}
             placeholder={'Enter comments here'}
             value={this.props.diag3.value}
           />
@@ -85,4 +86,4 @@ const mapStateToProps = state => {
   return { errors, diag1, diag2, diag3 };
 };
 
-export default connect(mapStateToProps, { selectModalOption, validateSection })(Diagnostic1);
+export default connect(mapStateToProps, { selectModalOption, validateSection, updateInput })(Diagnostic1);

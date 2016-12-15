@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
 
-const MultiText = ({ label, name, onChangeText, placeholder, value }) => {
+const MultiText = ({ label, onChangeText, placeholder, value }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.labelText}>
@@ -10,7 +10,7 @@ const MultiText = ({ label, name, onChangeText, placeholder, value }) => {
       <TextInput
         multiline
         style={styles.input}
-        onChangeText={() => onChangeText({ prop: name, value, isFilled: true })}
+        onChangeText={onChangeText}
         placeholder={placeholder}
         autoCorrect={false}
         value={value}
