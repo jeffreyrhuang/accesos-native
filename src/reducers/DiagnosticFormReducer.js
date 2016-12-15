@@ -13,6 +13,10 @@ const INITIAL_STATE = {
   diag2: {
     value: '',
     isFilled: false
+  },
+  diag3: {
+    value: '',
+    isFilled: false
   }
 };
 

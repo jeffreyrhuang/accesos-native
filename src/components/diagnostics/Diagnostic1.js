@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { selectModalOption, validateSection } from '../../actions';
-import { Container, SectionHeader, ModalSelect, FormFooter, ValidationErrors } from '../common';
+import {
+  Container,
+  SectionHeader,
+  ModalSelect,
+  FormFooter,
+  ValidationErrors,
+  MultiText } from '../common';
 
 class Diagnostic1 extends Component {
 
@@ -58,17 +64,25 @@ class Diagnostic1 extends Component {
               this.props.selectModalOption({ prop, value, isFilled });
             }}
           />
+          <MultiText
+            name={'diag3'}
+            label={'Comentarios'}
+            isFilled={this.props.diag3.isFilled}
+            onChangeText={({ prop, value, isFilled }) => this.props.selectModalOption({ prop, value, isFilled })}
+            placeholder={'Enter comments here'}
+            value={this.props.diag3.value}
+          />
         </ScrollView>
-        <FormFooter onPressNext={() => { this.props.validateSection(FIELDS) }} />
+        <FormFooter onPressNext={() => { this.props.validateSection(FIELDS); }} />
       </Container>
     );
   }
 }
 
 const mapStateToProps = state => {
-  const { errors, diag1, diag2 } = state.diagnosticForm;
+  const { errors, diag1, diag2, diag3 } = state.diagnosticForm;
 
-  return { errors, diag1, diag2 };
+  return { errors, diag1, diag2, diag3 };
 };
 
 export default connect(mapStateToProps, { selectModalOption, validateSection })(Diagnostic1);
