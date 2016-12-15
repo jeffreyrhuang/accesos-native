@@ -114,8 +114,7 @@ class ModalSelect extends Component {
 
   render() {
     return (
-      <View style={{ marginTop: 22 }}>
-
+      <View style={styles.container}>
         <Modal
           animationType={'fade'}
           transparent
@@ -143,6 +142,9 @@ class ModalSelect extends Component {
 }
 
 const styles = {
+  container: {
+    marginTop: 22
+  },
   modalSelect: {
     height: 50,
     alignSelf: 'stretch',

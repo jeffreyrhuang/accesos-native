@@ -64,13 +64,14 @@ class Diagnostic1 extends Component {
               this.props.selectModalOption({ prop, value, isFilled });
             }}
           />
+
           <MultiText
             name={'diag3'}
-            label={'Comentarios'}
+            label={'3. Comentarios estado de puerta'}
             onChangeText={(text) => {
               this.props.updateInput({ prop: 'diag3', value: text });
             }}
-            placeholder={'Enter comments here'}
+            placeholder={'Entrar comentarios aqui'}
             value={this.props.diag3.value}
           />
         </ScrollView>
@@ -86,4 +87,6 @@ const mapStateToProps = state => {
   return { errors, diag1, diag2, diag3 };
 };
 
-export default connect(mapStateToProps, { selectModalOption, validateSection, updateInput })(Diagnostic1);
+export default connect(mapStateToProps, {
+  selectModalOption, validateSection, updateInput
+})(Diagnostic1);
