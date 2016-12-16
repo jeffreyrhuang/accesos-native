@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-class MultiText extends Component {
+class FormInput extends Component {
 
   renderIcon() {
     if (this.props.value) {
@@ -12,7 +12,7 @@ class MultiText extends Component {
   }
 
   render() {
-    const { label, onChangeText, placeholder, value } = this.props;
+    const { label, onChangeText, multiline, placeholder, value } = this.props;
     return (
       <View style={styles.container}>
         <View style={styles.topicContainer}>
@@ -26,7 +26,7 @@ class MultiText extends Component {
           </View>
         </View>
         <TextInput
-          multiline
+          multiline={multiline}
           style={styles.input}
           onChangeText={onChangeText}
           placeholder={placeholder}
@@ -41,14 +41,15 @@ class MultiText extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingLeft: 10,
     marginTop: 22,
     borderColor: '#ccc',
     borderBottomWidth: 1
   },
   topicContainer: {
     flexDirection: 'row',
-    paddingRight: 10
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 15
   },
   iconContainer: {
     flex: 1,
@@ -61,11 +62,11 @@ const styles = StyleSheet.create({
     flex: 8
   },
   input: {
-    paddingLeft: 5,
+    paddingLeft: 20,
     paddingTop: 5,
     height: 36,
     fontSize: 14
   }
 });
 
-export { MultiText };
+export { FormInput };

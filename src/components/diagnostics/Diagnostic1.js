@@ -8,7 +8,7 @@ import {
   ModalSelect,
   FormFooter,
   ValidationErrors,
-  MultiText } from '../common';
+  FormInput } from '../common';
 
 class Diagnostic1 extends Component {
 
@@ -65,13 +65,14 @@ class Diagnostic1 extends Component {
             }}
           />
 
-          <MultiText
+          <FormInput
             name={'diag3'}
             label={'3. Comentarios estado de puerta'}
             onChangeText={(text) => {
               this.props.updateInput({ prop: 'diag3', value: text });
             }}
             placeholder={'Entrar comentarios aqui'}
+            multiline
             value={this.props.diag3.value}
           />
         </ScrollView>
