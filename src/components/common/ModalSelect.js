@@ -65,7 +65,7 @@ class ModalSelect extends Component {
   renderTopic() {
     if (this.props.isFilled) {
       return (
-        <View>
+        <View style={{ paddingLeft: 10 }}>
           <View>
             <Text style={styles.topicText}>{this.props.topic}</Text>
           </View>
