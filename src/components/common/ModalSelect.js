@@ -14,18 +14,26 @@ class ModalSelect extends Component {
     };
   }
 
-  onSelect(item) {
-    this.setModalVisible(false);
-    this.props.onChange({ prop: this.props.name, value: item.option, isFilled: true });
+  onClear() {
+    this.close();
+    this.props.onChange({ prop: this.props.name, value: '', isFilled: false });
   }
 
-  onClear() {
-    this.setModalVisible(false);
-    this.props.onChange({ prop: this.props.name, value: '', isFilled: false });
+  onSelect(item) {
+    this.close();
+    this.props.onChange({ prop: this.props.name, value: item.option, isFilled: true });
   }
 
   setModalVisible(visible) {
     this.setState({ modalVisible: visible });
+  }
+
+  open() {
+    this.setModalVisible(true);
+  }
+
+  close() {
+    this.setModalVisible(false);
   }
 
   renderModalIcon(option) {
@@ -46,7 +54,7 @@ class ModalSelect extends Component {
       );
     }
     return (
-      <TouchableOpacity style={styles.modalButton} onPress={() => this.setModalVisible(false)}>
+      <TouchableOpacity style={styles.modalButton} onPress={() => this.close()}>
         <Text>
           Cancelar
         </Text>
@@ -61,7 +69,7 @@ class ModalSelect extends Component {
           <View>
             <Text style={styles.topicText}>{this.props.topic}</Text>
           </View>
-          <TouchableOpacity onPress={() => this.setModalVisible(true)}>
+          <TouchableOpacity onPress={() => this.open()}>
             <View style={styles.selectionContainer}>
               <View style={{ flex: 8 }}>
                 <Text>
@@ -77,7 +85,7 @@ class ModalSelect extends Component {
       );
     }
     return (
-      <TouchableOpacity onPress={() => this.setModalVisible(true)}>
+      <TouchableOpacity onPress={() => this.open()}>
         <View style={styles.selectionContainer}>
           <View style={{ flex: 10 }}>
             <Text style={styles.topicText}>{this.props.topic}</Text>
@@ -119,7 +127,7 @@ class ModalSelect extends Component {
           animationType={'fade'}
           transparent
           visible={this.state.modalVisible}
-          onRequestClose={() => this.setModalVisible(false)}
+          onRequestClose={() => this.close()}
         >
           <View style={styles.overlay}>
             <View style={styles.modal}>
